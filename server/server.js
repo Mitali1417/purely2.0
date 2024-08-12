@@ -14,7 +14,7 @@ const { connectDB } = require("./config/db");
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5174",
+    origin: "https://purely2-0.onrender.com",
     methods: ["POST", "GET"],
     credentials: true,
   })
