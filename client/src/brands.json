@@ -1,0 +1,352 @@
+{
+    "AffordableSkincare": [
+        {
+            "id": 1,
+            "Brand": "Wow skin science",
+            "URL": "https://www.buywow.in/",
+            "Logo": "https://www.buywow.in/_next/image?url=%2Fimages%2Fwow-logo.webp&w=128&q=80"
+        },
+        {
+            "id": 2,
+            "Brand": "Biotique",
+            "URL": "https://www.biotique.com/",
+            "Logo": "https://cdn.shopify.com/s/files/1/0652/3787/6974/files/logo-svg.png?v=1671013175"
+        },
+        {
+            "id": 3,
+            "Brand": "Jovees",
+            "URL": "https://jovees.com/",
+            "Logo": "https://jovees.com/media/logo/default/Jovees_Logo.jpg"
+        },
+        {
+            "id": 4,
+            "Brand": "Good vibes",
+            "URL": "https://www.goodvibesonly.in/",
+            "Logo": "https://www.goodvibesonly.in/cdn/shop/files/good-vibes_290x.png?v=1672909218"
+        },
+        {
+            "id": 5,
+            "Brand": "The moms co",
+            "URL": "https://themomsco.com/",
+            "Logo": "https://files.themomsco.com/site-images/original/-NewLogo-1414x288png.png"
+        },
+        {
+            "id": 6,
+            "Brand": "Mcaffeine",
+            "URL": "https://www.mcaffeine.com/",
+            "Logo": "https://www.mcaffeine.com/cdn/shop/files/logo_602b86cb-64f1-48bb-91ff-10ea44c29c10.png?v=1679991855&width=500"
+        },
+        {
+            "id": 7,
+            "Brand": "Dot&key",
+            "URL": "https://www.dotandkey.com/",
+            "Logo": "https://www.dotandkey.com/cdn/shop/files/Skype_Picture_2023_09_19T09_33_02_315Z_260x.png?v=1695116367"
+        },
+        {
+            "id": 8,
+            "Brand": "Suganda",
+            "URL": "https://suganda.co/products/advanced-pigmentation-serum",
+            "Logo": "https://suganda.co/cdn/shop/files/logo_ad577a3b-23ed-45ee-bd1c-e182896df45a_256x.webp?v=1672993186"
+        },
+        {
+            "id": 9,
+            "Brand": "Re'equil",
+            "URL": "https://www.reequil.com/collections/all?gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rMwdlnnMgYXQcj2eIYLyHlu2s13-v3aiocAh2uBsfWeMHMORRdiS-xoCNGQQAvD_BwE",
+            "Logo": "https://www.reequil.com/cdn/shop/files/logo_7fd268c2-98db-44c0-a7d8-51aa7cdd01dd.png?v=1704198052&width=150"
+        },
+        {
+            "id": 10,
+            "Brand": "Vedaearth",
+            "URL": "https://www.instagram.com/vedaearth?igsh=MW1pdXRtMzM2Z2QzNw==",
+            "Logo": "https://vedaearthloungespa.com/wp-content/uploads/2020/06/fina-l1.png"
+        },
+        {
+            "id": 11,
+            "Brand": "Dermafique",
+            "URL": "https://www.dermafique.com/?gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rHeKOS9sI4eDaxSiiaSqnmqq1y12yvkNLoKxsnYgbYuKs_T7RqxYIhoCJHgQAvD_BwE",
+            "Logo": "https://cdn.staticans.com/image/catalog/brandstore/Dermafique/554-2023_08_02-Logo_Transparent_512x150__1_.png"
+        },
+        {
+            "id": 12,
+            "Brand": "Minimalist",
+            "URL": "https://beminimalist.co/?gad_source=1&gbraid=0AAAAACLkziMNDjRPuTyoeKCJUf6QeI5yn&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rEPIOIAgbuy65rZU3V8s4M8VIcwN3HgVryRNFYp8-_OnxwEY3MCGNBoCXEMQAvD_BwE",
+            "Logo": "https://sfycdn.speedsize.com/56385b25-4e17-4a9a-9bec-c421c18686fb/https://beminimalist.co/cdn/shop/files/Minimalist-Logo-PNG-Mid.png?v=1712743274"
+        },
+        {
+            "id": 13,
+            "Brand": "Deyga organics",
+            "URL": "https://deyga.in/?cmp_id=16162872448&adg_id=163090445449&kwd=deyga%20organics&device=m&gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rPWzaXpRR8KJeN_aZkL19L8LEKmLVsGvUNCJkZx9GQEmWycIze9-whoCEnYQAvD_BwE",
+            "Logo": "https://deyga.in/cdn/shop/files/Logo_1_256x256_cda3ce48-9a4f-4a66-aa71-d6092d7fb782_140x.webp?v=1652701553"
+        },
+        {
+            "id": 14,
+            "Brand": "Soul tree",
+            "URL": "https://www.soultree.in/?utm_source=google&utm_medium=ET&utm_campaign=%7B%7Bcampaign.name%7D%7D&utm_term=%7B%7Badset.name%7D%7D&utm_content=%7B%7Bad.name%7D%7D&utm_campaign=17725424574&Adgroup=&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rBUP12HcOUmKZTKoeb_3k5Z98l1Jl8MUkayObUGdeVR0GW0OoC1QuxoCbHkQAvD_BwE&Keyword=&Matchtype=&Device=m&Adposition=&Placement=&gad_source=1",
+            "Logo": "https://www.soultree.in/cdn/shop/files/Logo-new_360x.png?v=1702985758"
+        },
+        {
+            "id": 15,
+            "Brand": "Mantra herbal",
+            "URL": "https://mantraherbal.in/?gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rBu74K1dvKQExQxyFurm57QHlEIw9sMl83ks8vRqkIquMe80H_ya5xoCuTwQAvD_BwE",
+            "Logo": "https://mantraherbal.in/cdn/shop/files/logo_180x.png?v=1664874734"
+        },
+        {
+            "id": 16,
+            "Brand": "Bon organics",
+            "URL": "https://www.bonorganics.com/",
+            "Logo": "https://www.bonorganics.com/cdn/shop/files/new_label_horizontal_8ff6fe93-2859-4a0c-8f19-71b49b5381e3_360x.png?v=1677119748"
+        },
+        {
+            "id": 17,
+            "Brand": "Organic harvest",
+            "URL": "https://www.organicharvest.in/collection/organic-harvest-re1-store?discountCode=OHXO199&utm_source=google&utm_campaign=OH_PMX_199XO_Orders&utm_medium=Pmax&gad_source=1&gbraid=0AAAAAC83FWhZI2Z6XxIQS-ZTq_vjbiWlD&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rB1uCmZD5l2jP16ej7oqE19jR8hYpwii-KYdFq14KfPaow2Q7rPv-RoCo2cQAvD_BwE",
+            "Logo": "https://files.organicharvest.in/site-images/original/Logo1_2.jpg"
+        },
+        {
+            "id": 18,
+            "Brand": "Foxtale",
+            "URL": "https://foxtale.in/",
+            "Logo": "https://foxtale.in/cdn/shop/files/0_2cc0ff3d-2f61-4eb0-9652-66290a12db5b.png?v=1648741806&width=125"
+        },
+        {
+            "id": 19,
+            "Brand": "Dr sheths",
+            "URL": "https://www.drsheths.com/collections/all?utm_source=google&utm_medium=cpc&utm_campaign=21182375204&utm_agid=162611233884&utm_term=dr%20sheth&creative=696491094398&gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rGyH_JEM39-UiIBND5a29O8hZPiQC5tBuCH4b-27LC92vMw5AxSFiRoCTWoQAvD_BwE",
+            "Logo": "https://www.drsheths.com/cdn/shop/files/width-1000px_300x.png?v=1690449385"
+        },
+        {
+            "id": 20,
+            "Brand": "Amayra naturals",
+            "URL": "https://amayranatural.in/",
+            "Logo": "https://amayranatural.in/wp-content/uploads/2020/12/AMAYRA_Website_Logo.png"
+        },
+        {
+            "id": 21,
+            "Brand": "Plum Goodness",
+            "URL": "https://plumgoodness.com/",
+            "Logo": "https://plumgoodness.com/cdn/shop/files/Plum_logo_1x1_6bb71e65-5902-49d4-833f-ea0d2f515741.png?v=1708613408&width=110"
+        },
+        {
+            "id": 22,
+            "Brand": "Quench botanics",
+            "URL": "https://www.quenchbotanics.com/collections/bestsellers?utm_source=Google+search&utm_medium=cpc&utm_campaign=GS_Conversion_Brand+Skin+Care_Q4-24&gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rAwGiKrmLFUc0SHFTgc9VJaKKe5Mqn96bUL2YfItZ7jyvfVbv6q7_BoCbg4QAvD_BwE",
+            "Logo": "https://d1cffxj31hqf0x.cloudfront.net/prod/images/QUENCH/Logo/90cb48b7-1175-4575-9b3f-b76462c7cb6f.gif"
+        },
+        {
+            "id": 23,
+            "Brand": "Cetaphil",
+            "URL": "https://www.cetaphil.com/us/",
+            "Logo": "https://www.cetaphil.com/on/demandware.static/-/Library-Sites-RefArchSharedLibrary/default/dwbfb7144d/images/cetaphil_logo_resized.png "
+        },
+        {
+            "id": 24,
+            "Brand": "Cure skin",
+            "URL": "https://cureskin.com/",
+            "Logo": " https://cureskin.com/wp-content/uploads/2022/12/logo.png"
+        },
+        {
+            "id": 25,
+            "Brand": "Coloressence",
+            "URL": "https://www.coloressence.com/",
+            "Logo": " https://www.coloressence.com/cdn/shop/files/Coloressence_Logo_Gif_250x.gif?v=1685174588"
+        },
+        {
+            "id": 26,
+            "Brand": "Kay beauty",
+            "URL": "https://www.google.com/gasearch?q=kay%20beauty&tbm=&source=sh/x/gs/m2/5",
+            "Logo": " https://kaybeauty.com/cdn/shop/files/kay-new-logo_140x.png?v=1669097976"
+        },
+        {
+            "id": 27,
+            "Brand": "Faces Canada",
+            "URL": "https://www.facescanada.com/",
+            "Logo": "https://www.facescanada.com/cdn/shop/files/faces_logo-01-s-web_220x.png?v=1640604033"
+        },
+        {
+            "id": 28,
+            "Brand": "Lakmé",
+            "URL": "https://www.lakmeindia.com/",
+            "Logo": "https://www.lakmeindia.com/cdn/shop/files/Lkm1_1_47aec8f4-69ca-4d80-be5f-b941bc1bf140_155x.png?v=1696105515"
+        },
+        {
+            "id": 29,
+            "Brand": "Earth rythm",
+            "URL": "https://earthrhythm.com/",
+            "Logo": "https://earthrhythm.com/cdn/shop/files/Brand_Logo.svg?v=1676477834&width=150"
+        },
+        {
+            "id": 30,
+            "Brand": "Moody",
+            "URL": "https://trymoody.com/pages/offer-page?gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rGyoY_crjJ_pdL1Yb5N3F0qbz-8zo57qV9R3Av7aAXM7JApvItUSUxoCqMoQAvD_BwE",
+            "Logo": "https://trymoody.com/cdn/shop/files/Moody_Logo_-_Edited.png?v=1678530309&width=240"
+        },
+        {
+            "id": 32,
+            "Brand": "Deconstruct",
+            "URL": "https://thedeconstruct.in/?utm_source=google&utm_medium=cpc&utm_campaign=Brand_TK_IN&utm_source=google&utm_medium=cpc&utm_campaign=19249428703&utm_adgroup=139638790490&gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rGhWg_XS_eXPOmsgu-Rih7xNLGsusDXKcWpHiyMDH3GYl7ZmxnK1jxoC-WYQAvD_BwE",
+            "Logo": "https://thedeconstruct.in/cdn/shop/files/header-logo.webp?height=80&v=1682503114 "
+        },
+        {
+            "id": 33,
+            "Brand": "Just herbs",
+            "URL": "https://www.justherbs.in/",
+            "Logo": " https://www.justherbs.in/cdn/shop/files/logo_63b1b88b-4fe5-4be6-9f5a-7be4052117f8_256x.png?v=1648100852"
+        },
+        {
+            "id": 34,
+            "Brand": "Derma co",
+            "URL": "https://thedermaco.com/?utm_source=google&utm_medium=cpc&utm_term=152590011100&utm_content=667100640369&gad_source=1&gbraid=0AAAAACgKvnJqb0O1E1gzuUeNFDqcWk_q5&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rE4ir56hPdT7vP8mtn16ZFTY01mhC2S3KvZIs5mdxKbdZAOCFkNqLhoCW-gQAvD_BwE",
+            "Logo": "https://images.thedermaco.com/TheDermaCoLogo2-min.png "
+        },
+        {
+            "id": 35,
+            "Brand": "Mellow herbals",
+            "URL": "https://mellow.co.in/",
+            "Logo": " https://mellow.co.in/cdn/shop/files/logo_mellow_original.png?v=1669022632&width=500"
+        },
+        {
+            "id": 36,
+            "Brand": "Klearme",
+            "URL": "https://www.instagram.com/klearme?igsh=MXVpdWEzdXdzb2lrOQ==",
+            "Logo": "https://cdn.kindlife.in/images/feature_variant/70/BrandGuidelines_Systems_Klearme_Skincare_1.33.48_PM-22.png?t=1692456962"
+        },
+        {
+            "id": 37,
+            "Brand": "Wishcare",
+            "URL": "https://www.mywishcare.com/?gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rICpSAykEqtPY_CxLz31CsWjyVgFz4o1FZgEv0n3fCZolqk_sFSi7hoCFBgQAvD_BwE",
+            "Logo": " https://www.mywishcare.com/cdn/shop/files/WishCare-logo.png?v=1691916409&width=202"
+        },
+        {
+            "id": 38,
+            "Brand": "Skinncells",
+            "URL": "https://www.instagram.com/loveskinncells?igsh=MXQ5d3Zud2cwY3g5cw==",
+            "Logo": "https://scontent.fdel10-1.fna.fbcdn.net/v/t39.30808-1/348265326_237368855553073_2920514738755460318_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=5f2048&_nc_ohc=WLcvYKyly3EAb7crXfT&_nc_ht=scontent.fdel10-1.fna&oh=00_AfAshxm4ifDnHe7iCKgLwCj5FCUczGDe35am_6ldYG8UKQ&oe=6636AFE3"
+        },
+        {
+            "id": 39,
+            "Brand": "Purearth limited",
+            "URL": "https://india.purearth.asia/collections/shop-all?utm_source=google&utm_medium=cpc&utm_campaign=DM_BrandSearch_29thJuly&gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rGtqCzHTFlcF7Q7x8WwQ0HkW8LRffpCIgqCSr6vWMGTtRjTYGgUMTxoCMB4QAvD_BwE",
+            "Logo": "https://india.purearth.asia/cdn/shop/files/purearth-black-logo_a6fca42f-6cc3-4074-a2bd-2900e65b6f4b_220x.png?v=1630127506"
+        },
+        {
+            "id": 40,
+            "Brand": "St.botanics",
+            "URL": "https://www.stbotanica.com/collection/summer-essentials?discountCode=Summer50&utm_source=google&utm_campaign=STB_PMX_NXO_Orders_REM_RET_TROAS&utm_medium=Pmax&utm_term=&gad_source=1&gbraid=0AAAAADitBOfkl__1voPI0NPyxA5FkO8n8&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rPPSCTf3beE407bhdoSQYrC7hHflr4mu7jLMUI4Gvg2wjwSSiZi5zBoCQU0QAvD_BwE",
+            "Logo": "https://files.stbotanica.com/site-images/original/LOGO---245X99.png"
+        },
+        {
+            "id": 41,
+            "Brand": "MyGlamm",
+            "URL": "https://www.myglamm.com/",
+            "Logo": "https://files.myglamm.com/site-images/original/myglamm-logo_1.jpg"
+        },
+        {
+            "id": 42,
+            "Brand": "Pilgrim",
+            "URL": "https://discoverpilgrim.com/?utm_source=google&utm_medium=cpc&campaignid=15265287285&adgroupid=129892873676&utm_campaign=Pilgrim_Search_Brand_BOF&gad_source=1&gbraid=0AAAAACjIahmJzmgUUdGNaOjWjv3GjVDL4&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rPuhNQCeFirjvS2oFObRjF0Y856rDIJ54I7vX2HaUCoXhq-mlwYC2RoCNZgQAvD_BwE",
+            "Logo": "https://discoverpilgrim.com/cdn/shop/files/Pilgrim-New-Logo-Without-Tagline_280x.png?v=1689940696"
+        },
+        {
+            "id": 43,
+            "Brand": "Auli lifestyle",
+            "URL": "https://aulilifestyle.com/collections/shop-all?utm_source=google&utm_medium=cpc&utm_campaign=%7BADB_Brand_Search%7D&utm_campaign=ML_Brand_Search&utm_source=google&utm_medium=cpc&utm_matchtype=e&utm_term=auli%20skincare&adgroupid=144863586209&gc_id=18509272725&h_ad_id=680257635773&gad_source=1&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rKYUhgvEXRCwsk02q3gJ2KmBiYwVP-0FDHJ5uRxY5hTy7SDhFmbaqBoCppEQAvD_BwE",
+            "Logo": "https://aulilifestyle.com/cdn/shop/files/1_1_x100.png?v=1669036641"
+        },
+        {
+            "id": 44,
+            "Brand": "Simpleskincare",
+            "URL": "https://www.simpleskincare.in/",
+            "Logo": "https://www.simpleskincare.in/cdn/shop/files/Simple_Logo_400x160_f1ca9ee2-b98c-484f-ae93-15897ffabcc0_200x80.png?v=1700634463"
+        },
+        {
+            "id": 46,
+            "Brand": "Juicy Chemistry",
+            "URL": "https://www.juicychemistry.com/",
+            "Logo": "https://juicychemistry.com/cdn/shop/files/juicy-chemistry-logo_250x.png?v=1686057264"
+        },
+        {
+            "id": 47,
+            "Brand": "Colorbar",
+            "URL": "https://www.colorbarcosmetics.com/",
+            "Logo": "https://colorbarcosmetics.com/cdn/shop/files/Colorbar-logo_344x.png?v=1649064962"
+        },
+        {
+            "id": 48,
+            "Brand": "Kama Ayurveda",
+            "URL": "https://www.instagram.com/kamaayurvedaindia/?utm_source=ig_embed&ig_rid=39fa2716-26d8-49c9-b832-bce23da7c666",
+            "Logo": "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjEuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxNzcgNDYiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE3NyA0NjsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPgoJLnN0MHtmaWxsOiNBODY3Mjg7fQo8L3N0eWxlPgo8Zz4KCTxnPgoJCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik00NS4zLDM0LjhjMS4xMywwLDEuNDYsMC4zLDAuOSwxLjI2bC0yLjQ5LDQuMjNsLTIuODItNC4zNGMtMC41My0wLjgxLTAuNDMtMS4xNiwwLjk0LTEuMTZ2LTAuMzRoLTQuN3YwLjM0CgkJCWMxLjE1LDAuMDQsMS41NSwwLjI3LDIuNDIsMS42M2wzLjE0LDQuOTF2Mi40OWMwLDAuODctMC4zMSwxLjI2LTEuNDIsMS4yNmgtMC4zM3YwLjM0aDQuODZWNDUuMWgtMC4yMwoJCQljLTEuMDcsMC0xLjQxLTAuMzgtMS40MS0xLjMydi0yLjY0bDIuOTMtNC45NmMwLjQ5LTAuODMsMS0xLjI5LDIuMjEtMS4zOXYtMC4zNEg0NS4zVjM0Ljh6IE02NC45MiwzNC41MQoJCQljMS40NywwLjA2LDEuNzMsMC4zNiwxLjczLDIuMDZ2NC4xMWMwLDMtMi4wMywzLjgyLTQuMDIsMy44MmMtMi42MiwwLTQuMDMtMS40NC00LjAzLTMuODF2LTQuOWMwLTEuMDMsMC40My0xLjI4LDEuNDEtMS4yOGgwLjE1CgkJCXYtMC4zNGgtNC41NHYwLjM0YzEuMiwwLjAxLDEuNTQsMC4xOSwxLjU0LDEuMzF2NS4xNmMwLDIuNTIsMS43Myw0LjQ2LDUuMDksNC40NmMzLjgyLDAsNS4yMi0yLjM3LDUuMjItNC41NHYtNC43OQoJCQljMC0xLjExLDAuNDItMS41OSwxLjYtMS42di0wLjM0aC00LjE0VjM0LjUxeiBNMzAuOCw0My45OWwtMy42OC05LjhoLTEuNTRsMC4xNiwwLjM5bC0zLjIyLDguNzdjLTAuNTUsMS41My0wLjc2LDEuNzMtMS45MSwxLjc1CgkJCXYwLjM0aDQuMDlWNDUuMWgtMC4yOWMtMC45OCwwLTEuNDQtMC4xNy0xLjQ0LTAuNjZjMC0wLjI1LDAuMjMtMC43NywwLjM2LTEuMTFsMS4wMS0yLjc3aDMuNjdsMS4xOCwzLjIyCgkJCWMwLjA3LDAuMTcsMC4xOCwwLjQ0LDAuMTgsMC43MmMwLDAuNDktMC4zNywwLjYtMS4zNiwwLjZoLTAuNDZ2MC4zNGg0Ljg0VjQ1LjFDMzEuNTMsNDUuMSwzMS4xNSw0NC45MywzMC44LDQzLjk5eiBNMjQuNjcsMzkuNzgKCQkJbDEuNTEtNC4xMWwxLjU0LDQuMTFIMjQuNjd6IE01Ny44NywyMy42MWgtMi42NmwtMS45Ni0zLjUzbDIuMjYtNC4yMmgxMC42MWwzLjIsNS42MWwtMS4xNCwyLjE0aC00LjM0djEuMDFIODIuMnYtMS4wMQoJCQljLTIuMTEsMC00LjI0LDAtNS41MS0yLjIxTDY0LjUzLTAuMDJoLTEuNjlMNTIuNTUsMTguNzVjLTIuMiw0LjA0LTQuMjEsNC40Mi02LjYsNC44NnYxLjAxaDExLjkyVjIzLjYxeiBNNjAuNDUsNi43MQoJCQljMC4xMS0wLjE3LDAuMjQtMC4zNywwLjUtMC4zN2MwLjI2LDAsMC4zOSwwLjIsMC40MywwLjM3bDQuMTgsOC4xNWgtOS40Mkw2MC40NSw2LjcxeiBNMTkuNDMsMTIuMDFsNy40Myw5LjM5bC0xLjAyLDIuMjFoLTMuNDYKCQkJdjEuMDFoMTYuOXYtMS4wMWgtMi40N0wyNC44NCw4LjQybDEwLjg0LTYuOTloMi45VjAuNDJIMjIuMnYxLjAxaDIuMTNsMy41NCwzLjY2bC0xNC4xMiw5LjAxVjMuMThsMi4wOS0xLjc2aDIuMzJWMC40MkgwLjk2djEuMDEKCQkJaDMuNTdsMi4yMiwyLjI1djE3LjY1bC0yLjA4LDIuMjhIMC45NnYxLjAxaDE3LjE5di0xLjAxaC0yLjMybC0yLjA5LTIuMDh2LTUuOTlMMTkuNDMsMTIuMDF6IE04NC4yMiw0MS45MwoJCQljLTAuODQtMC44My0xLjM2LTEuMzMtMi4wMS0xLjg0YzEuNDQtMC40MywyLjM2LTEuNTMsMi4zNi0yLjg1YzAtMS44MS0xLjQ4LTMuMTQtNC43NC0zLjE0Yy0xLjE0LDAtMS41LDAtMi4yMywwLjA0CgkJCWMtMC43MiwwLjAzLTEuNzksMC4xLTIuMjIsMC4xdjAuMzRoMC4zOWMxLjAyLDAsMS4zMiwwLjMxLDEuMzIsMS40MXY3LjQzYzAsMS4xOC0wLjM4LDEuNDYtMS40LDEuNDZoLTAuMzJ2MC4zNGg1LjAxdi0wLjM0aC0wLjQKCQkJYy0xLDAtMS40My0wLjI3LTEuNDMtMS4zMnYtMi45OGMwLjI4LDAuMDIsMC41MSwwLjA1LDAuOTEsMC4wNWMwLjQ3LDAsMC43NC0wLjAzLDEuMi0wLjA1YzAuNDIsMC4yOCwxLjAzLDAuOCwxLjgsMS41NmwxLjE5LDEuMTcKCQkJYzEuNTUsMS41NywyLjM0LDIuMjQsNS40MywyLjF2LTAuMzFjLTEuMzYtMC4wOS0yLjQzLTAuNzQtMy40OC0xLjc4TDg0LjIyLDQxLjkzeiBNNzkuNjQsNDAuMjhjLTAuNCwwLTAuNjYsMC4wMi0xLjA5LTAuMDR2LTUuNzkKCQkJYzAuMzItMC4wMywwLjU1LTAuMDMsMC44OC0wLjAzYzIuNzQsMCwzLjQ3LDEuMjcsMy40NywyLjlDODIuOSwzOS40Niw4MS42Miw0MC4yOCw3OS42NCw0MC4yOHogTTE1My40Niw0My45OWwtMy42OS05LjhoLTEuNTUKCQkJbDAuMTcsMC4zOWwtMy4yMSw4Ljc3Yy0wLjU4LDEuNTMtMC43NiwxLjczLTEuOTEsMS43NXYwLjM0aDQuMDlWNDUuMWgtMC4zYy0wLjk2LDAtMS40Mi0wLjE3LTEuNDItMC42NgoJCQljMC0wLjI1LDAuMjMtMC43NywwLjM1LTEuMTFsMS4wMi0yLjc3aDMuNjVsMS4yLDMuMjJjMC4wNiwwLjE3LDAuMTksMC40NCwwLjE5LDAuNzJjMCwwLjQ5LTAuMzgsMC42LTEuMzksMC42aC0wLjQ2djAuMzRoNC44NgoJCQlWNDUuMUMxNTQuMTgsNDUuMSwxNTMuODIsNDQuOTMsMTUzLjQ2LDQzLjk5eiBNMTQ3LjMyLDM5Ljc4bDEuNTEtNC4xMWwxLjU1LDQuMTFIMTQ3LjMyeiBNMTY5LjUsMjEuNEwxNTcuMzUtMC4wMmgtMS43CgkJCWwtMTAuMjgsMTguNzZjLTIuMTksNC4wNC00LjIxLDQuNDItNi42LDQuODZ2MS4wMWgxMS45MXYtMS4wMWgtMi42NGwtMS45Ni0zLjUzbDIuMjctNC4yMmgxMC41OGwzLjIxLDUuNjFMMTYxLDIzLjYxaC00LjM0djEuMDEKCQkJSDE3NXYtMS4wMUMxNzIuOTEsMjMuNjEsMTcwLjc3LDIzLjYxLDE2OS41LDIxLjR6IE0xNDguOTcsMTQuODVsNC4yOC04LjE1YzAuMTMtMC4xNywwLjI2LTAuMzcsMC41MS0wLjM3CgkJCWMwLjI2LDAsMC4zOSwwLjIsMC40NCwwLjM3bDQuMTcsOC4xNUgxNDguOTd6IE0xMzEuODMsMzQuMzFjLTAuOTIsMC0xLjk5LDAtMi45OCwwLjA0Yy0wLjk3LDAuMDMtMS44MiwwLjA4LTIuNDcsMC4xdjAuMzRoMC4zNQoJCQljMS4wNCwwLDEuMzQsMC4yNywxLjM0LDEuNDJ2Ny41OWMwLDEuMDItMC40NCwxLjI5LTEuMzksMS4yOWgtMC4zdjAuMzRIMTMyYzQuNDcsMCw2LjU0LTMuMiw2LjU0LTUuODcKCQkJQzEzOC41NCwzNi42NywxMzYuNDcsMzQuMzEsMTMxLjgzLDM0LjMxeiBNMTM1LjQyLDQzLjY3Yy0xLjA4LDEuMS0yLjA4LDEuNDMtNC40NiwxLjQzYy0xLjM3LDAtMS40NC0wLjI0LTEuNDQtMC45OFYzNC43CgkJCWMwLjIyLTAuMDIsMC42OS0wLjA3LDEuNDEtMC4wN2MyLjQ3LDAsMy43MiwwLjYyLDQuNTMsMS40M2MxLjA1LDEuMDMsMS40MSwyLjQ5LDEuNDEsMy44QzEzNi44OCw0MS42NywxMzYuMDgsNDMuMDMsMTM1LjQyLDQzLjY3CgkJCXogTTEwMC4wMSwzNC41MWMxLjE5LDAsMS42NSwwLjIsMS42NSwwLjc0YzAsMC4yNS0wLjEsMC41OS0wLjMxLDEuMWwtMi43OSw3LjI4bC0zLjE3LTcuOWMtMC4zMi0wLjgsMC4wNS0xLjE3LDEuNjctMS4yMXYtMC4zNAoJCQloLTQuODN2MC4zNGMxLjA2LDAsMS4yOSwwLjI1LDEuNzMsMS4zN2wzLjgsOS41NmgwLjkxbDMuNjEtOS40MWMwLjQzLTEuMDksMC45LTEuNTEsMS44My0xLjUxdi0wLjM0aC00LjFWMzQuNTF6IE0xMTkuMTgsMi42OQoJCQljMC4xOSwwLDAuMzYsMC4wNiwwLjM2LDAuMjV2MTguMzRsLTEuODEsMi4zM2gtMy40MXYxLjAxaDE3Ljc3di0xLjAxaC0zLjY1bC0yLjIxLTIuNTJWMy43NmwyLjU5LTIuMzNoMy4yN1YwLjQyaC0xMy41NAoJCQlsLTcuNDQsMTUuNTdsLTguMjUtMTUuNTdIODguODd2MS4wMWg0LjIxYzEuMTUsMCwxLjY1LDEuMzksMS42NSwyLjE0djE2LjI1bC0zLjAzLDMuNzloLTIuODR2MS4wMWgxMy4xMXYtMS4wMWgtMi4zOWwtMy40Ny0zLjc5CgkJCVYzLjI2YzAtMC4xOSwwLjEzLTAuNDUsMC40NC0wLjQ1YzAuMiwwLDAuMzcsMC4xOSwwLjQ1LDAuMzJsMTEuMDgsMjAuODVoMC41bDEwLjA5LTIxLjA0QzExOC43NCwyLjc1LDExOC45MiwyLjY5LDExOS4xOCwyLjY5egoJCQkgTTExNy43LDQ0Ljc5aC0yLjcxYy0wLjY1LDAtMC45NS0wLjE0LTAuOTUtMC45NnYtMy43N2gyLjk4YzAuNzIsMCwxLjA2LDAuMTQsMS4yMSwxLjRoMC4zM3YtMy4zNWgtMC4zMwoJCQljLTAuMDksMS4wMi0wLjM5LDEuMzItMS4wMiwxLjMyaC0zLjE2VjM1LjFoMy43MmMwLjY0LDAsMS4wNywwLjMxLDEuMzIsMS44aDAuMzFsLTAuMTQtMi40NGgtOC40OHYwLjM0aDAuNAoJCQljMS4xOCwwLDEuNCwwLjQyLDEuNCwxLjQxdjcuNDZjMCwxLjA1LTAuMjMsMS40My0xLjY1LDEuNDNoLTAuNDl2MC4zNGg5LjM2bDAuMjgtMi42NGgtMC4zMgoJCQlDMTE5LjMyLDQ0LjMzLDExOC45Niw0NC43OSwxMTcuNyw0NC43OXoiLz4KCTwvZz4KPC9nPgo8L3N2Zz4K"
+        },
+        {
+            "id": 49,
+            "Brand": "Forest Essentials",
+            "URL": "https://www.google.com/aclk?sa=l&ai=DChcSEwiWorux_-mFAxUegMIIHRmYA-kYABANGgJqZg&ase=2&gclid=CjwKCAjwrcKxBhBMEiwAIVF8rIBo2eQHaj-gmvrOeJ9o7HxCCpvVZFKF-eZWwpDDP0Ju7b6IHMDhnhoCTKkQAvD_BwE&ei=i-swZtanOOq84-EPrfuG4A0&sig=AOD64_2p4Qf9jy2e1t_NMiWQUwWkKL8p0A&q&sqi=2&nis=4&adurl&ved=2ahUKEwiWmZ-x_-mFAxVq3jgGHa29AdwQ0Qx6BAgREAE",
+            "Logo": "https://img.forestessentialsindia.com/pub/media/logo/stores/2/FE-Logo_1.png"
+        },
+        {
+            "id": 51,
+            "Brand": "Conscious Chemist",
+            "URL": "https://consciouschemist.com/",
+            "Logo": "https://consciouschemist.com/cdn/shop/t/159/assets/staticlogo_200x.png?v=59620630420707842101711184130"
+        },
+        {
+            "id": 52,
+            "Brand": "Daughter Earth",
+            "URL": "https://daughter.earth/",
+            "Logo": "https://daughter.earth/cdn/shop/t/2/assets/WEB.svg?v=74869016202438950791526975262"
+        },
+        {
+            "id": 53,
+            "Brand": "Kal Hans",
+            "URL": "https://www.instagram.com/kalhansnaturals/?utm_source=ig_embed&ig_rid=1b948aa4-9b00-4448-9e40-7efe0e06dba3",
+            "Logo": "https://cdn.kindlife.in/images/feature_variant/109/Kal_Hans_Naturals.png?t=1692456921"
+        },
+        {
+            "id": 54,
+            "Brand": "Neemli",
+            "URL": "https://www.neemlinaturals.com/",
+            "Logo": "https://www.neemlinaturals.com/cdn/shop/files/logo.png?v=1648191466"
+        },
+        {
+            "id": 55,
+            "Brand": "RAS Luxury Oils",
+            "URL": "https://www.rasluxuryoils.com/",
+            "Logo": "https://www.rasluxuryoils.com/cdn/shop/files/RAS_PNG.png?v=1688641437&width=90"
+        },
+        {
+            "id": 56,
+            "Brand": "Indulgeo Essentials",
+            "URL": "https://indulgeoessentials.com/",
+            "Logo": "https://indulgeoessentials.com/cdn/shop/files/logo.png?v=1696607451&width=110"
+        },
+        {
+            "id": 57,
+            "Brand": "Zahara Skincare",
+            "URL": "https://zaharaskincare.in/",
+            "Logo": "https://zaharaskincare.in/cdn/shop/t/5/assets/logo.png?v=88712621893316372311624638433"
+        },
+        {
+            "id": 59,
+            "Brand": "VLCC",
+            "URL": "https://www.vlccpersonalcare.com/",
+            "Logo": "https://vlccproducts.cdn.imgeng.in/fe/images/11042024-mobile-brand-logo.svg"
+        },
+        {
+            "id": 60,
+            "Brand": "Lotus Herbals",
+            "URL": "https://www.lotusherbals.com/",
+            "Logo": "https://www.lotusherbals.com/cdn/shop/files/lotus_logo_a23a681d-2303-497c-aa08-f08ef9de97a4_140x.png?v=1703573247"
+        },
+        {
+            "id": 61,
+            "Brand": "Himalaya Herbals",
+            "URL": "https://himalayawellness.in/",
+            "Logo": "https://himalayawellness.in/cdn/shop/files/Logo-2022-500_555a55b6-ca04-40ad-b4ed-e25cbfeeff7d.png?v=1677556527&width=100"
+        },
+        {
+            "id": 62,
+            "Brand": "Sugar Cosmetics",
+            "URL": "https://in.sugarcosmetics.com/",
+            "Logo": "https://in.sugarcosmetics.com/_next/image?url=%2F_next%2Fstatic%2Fmedia%2FNonCVLogoDesktop.86874a45.png&w=256&q=100"
+        }
+    ]
+}
