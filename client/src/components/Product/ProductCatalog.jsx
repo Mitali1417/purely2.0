@@ -11,14 +11,14 @@ import {
 import { styles } from "../../style/tailwindStyles";
 import { renderProductList } from "../../utils/renderProductList";
 import { useSortedProducts } from "../../utils/sortProduct";
-import { getProduct } from "../../api/productApi";
+import { useGetProduct } from "../../api/productApi";
 import { filteredProducts } from "../../utils/filteredProducts";
 
 const ProductCatalog = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const products = getProduct();
+  const products = useGetProduct();
 
   const searchedProducts = filteredProducts(products, searchTerm);
 
