@@ -1,85 +1,79 @@
-import { styles } from "../../style/tailwindStyles";
+import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useShoppingCart } from "@/hooks/useShoppingCart";
-import { Trash2, Heart, ShoppingCart } from "lucide-react";
+import { useCartStore } from "@/lib/store";
+import { Heart, ArrowLeft } from "lucide-react";
+import { useState, useEffect } from "react";
+import { AnimatePresence } from "motion/react";
+import { WishlistProductCard } from "./WishlistProductCard";
 
 const Wishlist = () => {
-  const { 
-    wishlist, 
-    isInCart, 
-    removeProductFromWishlist, 
-    addProductToCart, 
-    removeProductFromCart 
-  } = useShoppingCart();
+  const [isLoading, setIsLoading] = useState(true);
+  const {
+    wishlist,
+    wishlistCount,
+  } = useCartStore();
 
-  const handleCartToggle = (product: any) => {
-    if (isInCart(product.id)) {
-      removeProductFromCart(product.id);
-    } else {
-      addProductToCart(product);
-    }
-  };
+  console.log('Wishlist Component - wishlistCount:', wishlistCount, 'wishlist:', wishlist);
+  const wishlistItemsCount = wishlist.length;
+
+  // Simulate loading for better UX
+  useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 300);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <div className="text-center py-12">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-500 text-lg">Loading your wishlist...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (wishlistItemsCount === 0) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <Card className="border-0 shadow-lg">
+          <CardContent className="p-12">
+            <div className="text-center">
+              <div className="mx-auto w-24 h-24 bg-pink-100 rounded-full flex items-center justify-center mb-6">
+                <Heart className="w-12 h-12 text-pink-400" />
+              </div>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-2">Your wishlist is empty</h2>
+              <p className="text-gray-500 mb-8 max-w-md mx-auto">
+                Start building your wishlist by adding products you love! Save items for later and never lose track of what you want.
+              </p>
+              <div className="space-y-3">
+                <Button className="w-full max-w-xs" size="lg" asChild>
+                  <a href="/">
+                    <ArrowLeft className="w-4 h-4 mr-2" />
+                    Start Shopping
+                  </a>
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
 
   return (
-    <div className={`${styles.flexCenter} flex-col my-[1rem]`}>
-      <div className={`${styles.flexCenter} flex-col bg-white/20 min-h-[95vh] w-full rounded-[1rem] p-8`}>
-        {wishlist.length === 0 ? (
-          <div className="text-center">
-            <Heart className="w-16 h-16 mx-auto mb-4 text-gray-400" />
-            <h3 className="text-2xl font-bold text-gray-600 mb-2">Your wishlist is empty</h3>
-            <p className="text-gray-500">Start adding products to your wishlist!</p>
-          </div>
-        ) : (
-          <>
-            <h3 className="text-3xl font-bold mb-8 mt-20">
-              Wishlist
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-32">
-              {wishlist.map((product) => (
-                <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="relative">
-                    <img
-                      src={product.image}
-                      alt={product.name}
-                      className="w-full h-48 object-cover"
-                    />
-                    <button
-                      onClick={() => removeProductFromWishlist(product.id)}
-                      className="absolute top-2 right-2 p-2 bg-white/80 rounded-full hover:bg-white transition-colors"
-                    >
-                      <Trash2 className="w-5 h-5 text-red-500" />
-                    </button>
-                  </div>
-                  
-                  <CardHeader className="pb-2">
-                    <CardTitle className="text-lg font-semibold">{product.name}</CardTitle>
-                    <p className="text-xl font-bold text-primary">
-                      ${product.price}
-                    </p>
-                  </CardHeader>
-                  
-                  <CardContent className="pt-0">
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">
-                      {product.description}
-                    </p>
-                    <Button
-                      onClick={() => handleCartToggle(product)}
-                      className={`w-full ${
-                        isInCart(product.id) 
-                          ? 'bg-red-500 hover:bg-red-600' 
-                          : 'bg-primary hover:bg-primary/90'
-                      }`}
-                    >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
-                      {isInCart(product.id) ? 'Remove from Cart' : 'Add to Cart'}
-                    </Button>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </>
-        )}
+    <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">My Wishlist</h1>
+        <p className="text-gray-600">You have {wishlistItemsCount} item{wishlistItemsCount !== 1 ? 's' : ''} in your wishlist</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <AnimatePresence>
+          {wishlist.map((item, index) => (
+            <WishlistProductCard key={item.productId} item={item} index={index} />
+          ))}
+        </AnimatePresence>
       </div>
     </div>
   );

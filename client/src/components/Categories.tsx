@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { Loader2, Package } from "lucide-react"
 import { useProductsByCategory } from "@/hooks/useCategories"
+import { ProductCard } from "@/components/Product/ProductCard"
 
 export default function CategoryProductsPage() {
   const { categoryName } = useParams<{ categoryName: string }>()
@@ -51,16 +52,7 @@ export default function CategoryProductsPage() {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {products.map((p) => (
-            <div key={p._id} className="border rounded-lg p-4 shadow">
-              <img
-                src={p.productImage}
-                alt={p.productName}
-                className="w-full h-40 object-cover mb-3"
-              />
-              <h3 className="font-semibold">{p.productName}</h3>
-              <p className="text-sm text-muted-foreground">{p.brand}</p>
-              <p className="text-lg font-bold">₹{p.productPrice}</p>
-            </div>
+            <ProductCard key={p._id} product={p} />
           ))}
         </div>
       )}

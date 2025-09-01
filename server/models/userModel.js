@@ -25,6 +25,32 @@ const userSchema = new mongoose.Schema(
       enum: ["user", "admin"],
       default: "user",
     },
+    preferences: {
+      type: Object,
+      default: {},
+    },
+    profile: {
+      age: { type: Number, min: 0, max: 120 },
+      climate: { type: String, enum: ["humid", "dry", "temperate", "cold", "hot"], default: undefined },
+      allergies: { type: [String], default: [] },
+      skinType: { type: String, enum: ["oily", "dry", "combination", "normal", "sensitive"], default: undefined },
+      hairType: { type: String, enum: ["straight", "wavy", "curly", "coily"], default: undefined },
+      routine: {
+        type: String,
+        enum: ["minimal", "standard", "advanced"],
+        default: undefined,
+      },
+      budget: {
+        type: String,
+        enum: ["low", "medium", "high"],
+        default: undefined,
+      },
+      ingredientPreferences: {
+        avoid: { type: [String], default: [] },
+        prefer: { type: [String], default: [] },
+      },
+      notes: { type: String, maxlength: 1000 },
+    },
   },
   { timestamps: true }
 );

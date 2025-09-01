@@ -15,17 +15,18 @@ import {
   Tag,
 } from "lucide-react"; // Added more icons
 import { cn } from "@/lib/utils";
-import { useShoppingCart } from "@/hooks/useShoppingCart";
+import { useCartStore } from "@/lib/store";
 import { useSingleProduct } from "@/hooks/useSingleProduct";
 import { useProducts } from "@/hooks/useProducts";
 import { ProductCard } from "./Product/ProductCard";
+import { DebugStore } from "./DebugStore";
 
 const ProductDetailsPage = () => {
   const { productId } = useParams();
   const { product, loading, error } = useSingleProduct(productId);
   const { data: allProducts = [], isLoading: allProductsLoading } = useProducts();
-  const { addProductToCart, toggleWishlist, isInCart, isInWishlist } =
-    useShoppingCart();
+  const { addToCart, addToWishlist, removeFromWishlist, isInCart, isInWishlist } =
+    useCartStore();
 
   const [quantity, setQuantity] = useState(1);
 
@@ -44,7 +45,26 @@ const ProductDetailsPage = () => {
 
   const handleAddToCart = () => {
     if (product) {
-      addProductToCart(product, quantity);
+      console.log('ProductDetailsPage - Adding to cart:', product, 'quantity:', quantity);
+      addToCart(product, quantity);
+      console.log('ProductDetailsPage - Successfully added to cart');
+    } else {
+      console.error('ProductDetailsPage - No product to add to cart');
+    }
+  };
+
+  const toggleWishlist = () => {
+    if (product) {
+      console.log('ProductDetailsPage - Toggling wishlist for product:', product._id, 'isInWishlist:', isInWishlist(product._id));
+      if (isInWishlist(product._id)) {
+        removeFromWishlist(product._id);
+        console.log('ProductDetailsPage - Removed from wishlist');
+      } else {
+        addToWishlist(product);
+        console.log('ProductDetailsPage - Added to wishlist');
+      }
+    } else {
+      console.error('ProductDetailsPage - No product to toggle wishlist');
     }
   };
 
@@ -132,7 +152,7 @@ const ProductDetailsPage = () => {
             className="absolute top-4 right-4 z-10 p-3 bg-white/70 dark:bg-gray-800/70 rounded-full shadow-md backdrop-blur-sm"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            onClick={() => toggleWishlist(product)}
+            onClick={toggleWishlist}
             aria-label="Add to wishlist"
           >
             <Heart
@@ -360,6 +380,9 @@ const ProductDetailsPage = () => {
           </div>
         )}
       </div>
+      
+      {/* Debug Store Component */}
+      <DebugStore />
     </motion.div>
   );
 };

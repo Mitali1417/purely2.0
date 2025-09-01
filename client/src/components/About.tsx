@@ -1,5 +1,8 @@
 
+import { useState } from "react";
+
 const About = () => {
+  const [hover, setHover] = useState(false);
   return (
     <div className={`flex flex-col w-full h-full p-[1rem]`}>
       <div

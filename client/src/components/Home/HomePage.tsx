@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { useFeaturedProducts, useSaleProducts, useCategories, useShoppingCart } from "../../hooks";
+import { useFeaturedProducts, useSaleProducts, useCategories } from "../../hooks";
+import { useCartStore } from "@/lib/store";
 import { 
   Star, 
   Heart, 
@@ -20,6 +21,7 @@ import {
   Zap
 } from "lucide-react";
 import { styles } from "../../style/tailwindStyles";
+import DemoProducts from "../DemoProducts";
 
 const HomePage = () => {
   const { data: featuredProducts = [], isLoading: featuredLoading } = useFeaturedProducts();
@@ -28,9 +30,22 @@ const HomePage = () => {
   const { 
     isInCart, 
     isInWishlist, 
-    addProductToCart, 
-    toggleWishlist 
-  } = useShoppingCart();
+    addToCart, 
+    addToWishlist,
+    removeFromWishlist
+  } = useCartStore();
+
+  const toggleWishlist = (product: any) => {
+    if (isInWishlist(product._id)) {
+      removeFromWishlist(product._id);
+    } else {
+      addToWishlist(product);
+    }
+  };
+
+  const addProductToCart = (product: any) => {
+    addToCart(product, 1);
+  };
 
   const features = [
     {
@@ -334,6 +349,11 @@ const HomePage = () => {
             ))}
           </div>
         </div>
+      </section>
+
+      {/* Demo Products Section */}
+      <section className="py-16 bg-gray-50">
+        <DemoProducts />
       </section>
 
       {/* CTA Section */}

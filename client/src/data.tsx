@@ -21,15 +21,20 @@ export const navLinks = [
     navText: "Guide",
     navLink: "/guide",
   },
+  // {
+  //   id: 4,
+  //   navText: "Brands",
+  //   navLink: "/brands",
+  // },
+  // {
+  //   id: 5,
+  //   navText: "Contact",
+  //   navLink: "/contact",
+  // },
   {
     id: 4,
-    navText: "Brands",
-    navLink: "/brands",
-  },
-  {
-    id: 5,
-    navText: "Contact",
-    navLink: "/contact",
+    navText: "Assistant",
+    navLink: "/assistant",
   },
 ];
 

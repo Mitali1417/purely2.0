@@ -10,7 +10,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { useProduct, useAddReview, useShoppingCart } from "../../hooks";
+import { useProduct, useAddReview } from "../../hooks";
+import { useCartStore } from "@/lib/store";
 import { 
   Heart, 
   ShoppingCart, 
@@ -43,16 +44,45 @@ const ProductDetail = () => {
   const { 
     isInCart, 
     isInWishlist, 
-    addProductToCart, 
-    toggleWishlist,
-    getCartItemQuantity,
-    updateCartItemQuantity
-  } = useShoppingCart();
+    addToCart, 
+    addToWishlist,
+    removeFromWishlist,
+    getCartItem,
+    updateQuantity
+  } = useCartStore();
 
   const handleAddToCart = () => {
     if (product) {
-      addProductToCart(product, quantity);
+      console.log('ProductDetail - Adding to cart:', product, 'quantity:', quantity);
+      addToCart(product, quantity);
+      console.log('ProductDetail - Successfully added to cart');
+    } else {
+      console.error('ProductDetail - No product to add to cart');
     }
+  };
+
+  const toggleWishlist = () => {
+    if (product) {
+      console.log('ProductDetail - Toggling wishlist for product:', product._id, 'isInWishlist:', isInWishlist(product._id));
+      if (isInWishlist(product._id)) {
+        removeFromWishlist(product._id);
+        console.log('ProductDetail - Removed from wishlist');
+      } else {
+        addToWishlist(product);
+        console.log('ProductDetail - Added to wishlist');
+      }
+    } else {
+      console.error('ProductDetail - No product to toggle wishlist');
+    }
+  };
+
+  const getCartItemQuantity = (productId: string) => {
+    const item = getCartItem(productId);
+    return item ? item.quantity : 0;
+  };
+
+  const updateCartItemQuantity = (productId: string, newQuantity: number) => {
+    updateQuantity(productId, newQuantity);
   };
 
   const handleReviewSubmit = (e: React.FormEvent) => {
@@ -296,7 +326,7 @@ const ProductDetail = () => {
               <Button
                 variant="outline"
                 size="lg"
-                onClick={() => toggleWishlist(product)}
+                onClick={toggleWishlist}
               >
                 <Heart 
                   className={`w-5 h-5 ${
