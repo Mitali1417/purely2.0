@@ -23,6 +23,8 @@ coverage/
 dist/
 build/
 
+server/.env
+
 # dotenv environment variables
 .env
 .env.local
