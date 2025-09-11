@@ -1,15 +1,19 @@
 import { useState, useMemo } from 'react';
 import type { Product } from '../data/products';
+import { useDebounce } from './useDebounce';
 
 export const useProductFilters = (products: Product[]) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [sortBy, setSortBy] = useState<'productName' | 'productPrice'>('productName');
   const [sortOrder, setSortOrder] = useState<'asc' | 'desc'>('asc');
   const [categoryFilter, setCategoryFilter] = useState<string>('all');
+  
+  // Debounce search term to avoid excessive filtering
+  const debouncedSearchTerm = useDebounce(searchTerm, 200);
 
   // Filter products based on search term and category
   const filteredProducts = useMemo(() => {
-    const normalizedSearch = (searchTerm || '').toLowerCase();
+    const normalizedSearch = (debouncedSearchTerm || '').toLowerCase();
     return products.filter((product) => {
       const name = (product?.productName ?? '').toLowerCase();
       const description = (product?.productDescription ?? '').toLowerCase();
@@ -18,7 +22,7 @@ export const useProductFilters = (products: Product[]) => {
       const matchesCategory = categoryFilter === 'all' || category === categoryFilter;
       return matchesSearch && matchesCategory;
     });
-  }, [products, searchTerm, categoryFilter]);
+  }, [products, debouncedSearchTerm, categoryFilter]);
 
   // Sort filtered products
   const sortedProducts = useMemo(() => {

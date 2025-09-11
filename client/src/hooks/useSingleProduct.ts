@@ -1,10 +1,12 @@
 // src/hooks/useSingleProduct.js
 import { useEffect, useState } from "react";
+import { getProductById } from "@/api/product.api";
+import type { Product } from "@/lib/store";
 
-export const useSingleProduct = (productId) => {
-  const [product, setProduct] = useState(null);
+export const useSingleProduct = (productId: string) => {
+  const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!productId) {
@@ -17,20 +19,10 @@ export const useSingleProduct = (productId) => {
       setLoading(true);
       setError(null);
       try {
-        const url = `http://localhost:5003/api/products/${productId}`;
-        const res = await fetch(url);
-
-        if (!res.ok) {
-          if (res.status === 404) {
-            throw new Error("Product not found.");
-          }
-          throw new Error("Failed to fetch product details.");
-        }
-
-        const data = await res.json();
-        setProduct(data);
-      } catch (err) {
-        setError(err.message);
+        const data = await getProductById(productId);
+        setProduct(data ?? null);
+      } catch (err: any) {
+        setError(err?.message || "Failed to fetch product details.");
       } finally {
         setLoading(false);
       }

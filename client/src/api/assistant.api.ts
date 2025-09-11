@@ -11,43 +11,43 @@ export interface AssistantResponse {
   createdAt: string;
 }
 
+export type MessagePayload = {
+  message: string;
+  filters?: {
+    category?: string;
+    search?: string;
+    profile?: any;
+  };
+};
+
 export const assistantAPI = {
-  suggest: async (payload: {
-    messages: { role: "user" | "assistant" | "system"; content: string }[];
-    filters?: { category?: string; search?: string; profile?: any };
-  }) => {
+  // Send message and get response (with optional streaming)
+  suggest: async (payload: { messages: AssistantMessage[], filters?: any }): Promise<any> => {
     const res = await api.post("/assistant/suggest", payload);
     return res.data;
   },
-  // Send a single prompt and get response
-  ask: async (message: string): Promise<AssistantResponse> => {
-    const res = await api.post("/assistant/ask", { message });
+
+  sendMessage: async (payload: MessagePayload, stream?: boolean): Promise<AssistantResponse | ReadableStream> => {
+    const endpoint = stream ? "/assistant/stream" : "/assistant/suggest";
+    const config = stream ? { responseType: "stream" } : undefined;
+    
+    const res = await api.post(endpoint, {
+      messages: [{ role: "user", content: payload.message }],
+      filters: payload.filters
+    }, config);
+    
     return res.data;
   },
 
-  // Streaming chat (if backend supports SSE or WS)
-  streamAsk: async (message: string): Promise<ReadableStream> => {
-    const res = await api.post(
-      "/assistant/stream",
-      { message },
-      { responseType: "stream" }
-    );
-    return res.data;
-  },
-
-  // Conversation history
-  getHistory: async (): Promise<AssistantResponse[]> => {
-    const res = await api.get("/assistant/history");
-    return res.data;
-  },
-
-  // Clear history
-  clearHistory: async (): Promise<void> => {
-    await api.delete("/assistant/history");
-  },
-
-  // Save context (optional: user-specific data or preferences)
-  saveContext: async (context: Record<string, any>): Promise<void> => {
-    await api.post("/assistant/context", context);
+  // Manage conversation history
+  history: {
+    get: async (): Promise<AssistantResponse[]> => {
+      const res = await api.get("/assistant/history");
+      return res.data;
+    },
+    
+    clear: async (): Promise<void> => {
+      await api.delete("/assistant/history");
+    },
   },
 };

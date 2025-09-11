@@ -81,19 +81,6 @@ exports.login = async (req, res) => {
   }
 };
 
-exports.me = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.id).select("_id name email role preferences");
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
-    return res.json({ user: { id: user._id, name: user.name, email: user.email, role: user.role, preferences: user.preferences || {} } });
-  } catch (err) {
-    console.error("Me error", err);
-    return res.status(500).json({ message: "Server error" });
-  }
-};
-
 exports.guestLogin = async (req, res) => {
   try {
     const guestEmail = process.env.GUEST_EMAIL || "guest@demo.com";

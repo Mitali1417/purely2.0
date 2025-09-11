@@ -1,29 +1,28 @@
 
 import { useEffect } from "react";
 import { useAuthStore } from "@/lib/store";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import api from "@/api";
+import { useLoginDialogStore } from "@/components/shared/LoginRequiredDialog";
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
+  const location = useLocation();
+  const { openDialog } = useLoginDialogStore();
 
   useEffect(() => {
-    const verify = async () => {
-      try {
-        await api.get("/auth/me");
-      } catch (err: any) {
-        logout();
-        localStorage.removeItem("auth_token");
-        navigate("/login", { replace: true });
-      }
-    };
-    if (isAuthenticated) verify();
+    if (!localStorage.getItem("auth_token")) {
+      logout();
+      navigate("/login", { replace: true });
+    }
   }, [isAuthenticated, logout, navigate]);
 
   if (!isAuthenticated) {
-    console.log("Not Authenticated");
-    return <Navigate to="/login" replace />;
+    if (location.pathname !== "/") {
+      openDialog("Login first to continue.");
+    }
+    return <Navigate to="/" replace />;
   }
 
   return children;

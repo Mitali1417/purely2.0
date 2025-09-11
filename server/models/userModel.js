@@ -51,6 +51,29 @@ const userSchema = new mongoose.Schema(
       },
       notes: { type: String, maxlength: 1000 },
     },
+    cart: {
+      type: [
+        new mongoose.Schema(
+          {
+            productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
+            quantity: { type: Number, min: 1, default: 1 },
+          },
+          { _id: false }
+        ),
+      ],
+      default: [],
+    },
+    wishlist: {
+      type: [
+        new mongoose.Schema(
+          {
+            productId: { type: mongoose.Schema.Types.ObjectId, ref: "Product", required: true },
+          },
+          { _id: false }
+        ),
+      ],
+      default: [],
+    },
   },
   { timestamps: true }
 );

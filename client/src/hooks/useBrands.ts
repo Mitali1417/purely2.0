@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { getProductMetadata } from "@/api/product.api";
 
 export const useBrands = () => {
   return useQuery({
     queryKey: ["brands"],
     queryFn: async () => {
-      const { data } = await axios.get("http://localhost:5003/api/products/brands");
-      return data;
+      const data = await getProductMetadata('brands');
+      return data || [];
     },
   });
 };

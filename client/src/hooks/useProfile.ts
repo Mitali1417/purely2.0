@@ -49,35 +49,33 @@ export const useProfile = () => {
   const debouncedProfile = useDebounce(profile, 1000);
   const debouncedPreferences = useDebounce(preferences, 1000);
 
-  // Update profile on server with debouncing
-  const updateProfileMutation = useMutation({
-    mutationFn: userAPI.updateProfile,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["userProfile"] });
+  // Combined mutation for profile and preferences updates
+  const updateMutation = useMutation({
+    mutationFn: async (data: { type: 'profile' | 'preferences'; updates: any }) => {
+      if (data.type === 'profile') {
+        return userAPI.updateProfile(data.updates);
+      }
+      return userAPI.updatePreferences(data.updates);
+    },
+    onSuccess: (_, variables) => {
+      queryClient.invalidateQueries({ 
+        queryKey: [variables.type === 'profile' ? "userProfile" : "userPreferences"] 
+      });
     },
   });
 
-  // Update preferences on server with debouncing
-  const updatePreferencesMutation = useMutation({
-    mutationFn: userAPI.updatePreferences,
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["userPreferences"] });
-    },
-  });
-
-  // Debounced profile update
+  // Combined debounced updates
   useEffect(() => {
     if (debouncedProfile && Object.keys(debouncedProfile).length > 0) {
-      updateProfileMutation.mutate(debouncedProfile);
+      updateMutation.mutate({ type: 'profile', updates: debouncedProfile });
     }
-  }, [debouncedProfile, updateProfileMutation]);
+  }, [debouncedProfile, updateMutation]);
 
-  // Debounced preferences update
   useEffect(() => {
     if (debouncedPreferences && Object.keys(debouncedPreferences).length > 0) {
-      updatePreferencesMutation.mutate(debouncedPreferences);
+      updateMutation.mutate({ type: 'preferences', updates: debouncedPreferences });
     }
-  }, [debouncedPreferences, updatePreferencesMutation]);
+  }, [debouncedPreferences, updateMutation]);
 
   // Optimized update functions
   const updateProfile = useCallback((updates: Partial<typeof profile>) => {
@@ -90,20 +88,20 @@ export const useProfile = () => {
 
   const resetProfile = useCallback(() => {
     resetLocalProfile();
-    updateProfileMutation.mutate({});
-    updatePreferencesMutation.mutate({});
-  }, [resetLocalProfile, updateProfileMutation, updatePreferencesMutation]);
+    updateMutation.mutate({ type: 'profile', updates: {} });
+    updateMutation.mutate({ type: 'preferences', updates: {} });
+  }, [resetLocalProfile, updateMutation]);
 
   // Computed values
-  const isUpdating = updateProfileMutation.isPending || updatePreferencesMutation.isPending;
-  const hasChanges = updateProfileMutation.isPending || updatePreferencesMutation.isPending;
+  const isUpdating = updateMutation.isPending;
+  const hasChanges = updateMutation.isPending;
 
   return {
     // State
     profile,
     preferences,
     loading: loading || isLoadingProfile || isLoadingPreferences,
-    error: error || updateProfileMutation.error || updatePreferencesMutation.error,
+    error: error || updateMutation.error,
     
     // Actions
     updateProfile,
@@ -114,25 +112,7 @@ export const useProfile = () => {
     isUpdating,
     hasChanges,
     
-    // Mutations (for direct control if needed)
-    updateProfileMutation,
-    updatePreferencesMutation,
+    // Mutation (for direct control if needed)
+    updateMutation,
   };
-};
-
-// Simple debounce hook
-export const useDebounce = <T>(value: T, delay: number): T => {
-  const [debouncedValue, setDebouncedValue] = React.useState<T>(value);
-
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedValue(value);
-    }, delay);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [value, delay]);
-
-  return debouncedValue;
 };

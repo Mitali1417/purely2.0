@@ -5,6 +5,8 @@ const { suggest } = require("../controllers/assistantController");
 
 router.post("/suggest", requireAuth, suggest);
 
+
+
 module.exports = router;
 
 

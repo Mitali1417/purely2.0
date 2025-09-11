@@ -1,20 +1,10 @@
-// src/lib/stores/types.ts
-export type User = {
-  id: string;
-  name: string;
-  email: string;
-};
-
-export type Product = {
-  _id: string;
-  productName: string;
-  productPrice: number;
-  productImage: string;
-  productBrand?: string;
-  productCategory?: string;
-};
-
-export type CartItem = {
-  product: Product;
-  quantity: number;
-};
+// src/store/types.ts
+// Re-export types from the consolidated store
+export type {
+  User,
+  Product,
+  CartItem,
+  WishlistItem,
+  UserProfile,
+  UserPreferences,
+} from '../lib/store';

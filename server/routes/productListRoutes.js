@@ -6,11 +6,15 @@ const {
   addProduct,
   getProducts,
   getProductById,
+  getCategories,
+  getBrands,
 } = require("../controllers/productListController");
 
 router.post("/add", uploader.single("image"), addProduct);
 
 router.get("/", getProducts);
+router.get("/categories", getCategories);
+router.get("/brands", getBrands);
 router.get("/:id", getProductById);
 
 module.exports = router;

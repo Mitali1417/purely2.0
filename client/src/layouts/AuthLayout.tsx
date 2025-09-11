@@ -1,23 +1,21 @@
+import PageTitle from "@/components/shared/PageTitle";
 import { Outlet } from "react-router-dom";
-import { motion } from "motion/react";
 
 const AuthLayout = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-white to-pink-50 flex items-center justify-center px-4 py-8">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3 }}
-        className="w-full max-w-md"
-      >
-        <div className="text-center mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">
-            <span className="text-purple-600">Purely</span>
-          </h1>
-          <p className="text-gray-600">Your beauty journey starts here</p>
-        </div>
-        <Outlet />
-      </motion.div>
+    <div
+      style={{
+        backgroundImage:
+          'url("https://res.cloudinary.com/duju3bhds/image/upload/v1757323648/Untitled_design_1_bu7lyt.png")',
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+      className="min-h-screen flex items-center justify-center md:px-4 py-8 relative overflow-hidden"
+    >
+      <PageTitle />
+      <div className="w-full max-w-md">
+      <Outlet />
+      </div>
     </div>
   );
 };

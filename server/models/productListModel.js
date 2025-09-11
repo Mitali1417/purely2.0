@@ -13,9 +13,21 @@ const productListSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  productPrice: {
+   originalPrice: {
     type: Number,
     required: true,
+  },
+  discountPrice: {
+    type: Number,
+    required: false,
+  },
+  discountPercentage: {
+    type: String, 
+    required: false,
+  },
+  rating: {
+    type: Number,
+    default: 0,
   },
   category: {
     type: String,

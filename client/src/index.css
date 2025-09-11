@@ -1,11 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&family=Montserrat+Alternates:ital,wght@0,100..900;1,100..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:ital,wght@0,400..700;1,400..700&family=Quicksand:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,slnt,wght@0,-10..0,100..900;1,-10..0,100..900&display=swap");
+
+/* @import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@100..700&display=swap'); */
 @import "tailwindcss";
 @import "tw-animate-css";
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100..900;1,100..900&family=Kalnia:ital,wght@0,100..900;1,100..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:ital,wght@0,400..700;1,400..700&family=Quicksand:ital,wght@0,300..700;1,300..700&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Inter:ital,slnt,wght@0,-10..0,100..900;1,-10..0,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Inter:wght@100..900&family=Kalnia:wght@100..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&display=swap");
 
 @custom-variant dark (&:is(.dark *));
 
-@theme inline {
+
+
+@theme inline{
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -28,6 +31,17 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+
+  --color-cream: var(--cream);
+  --color-yellow: var(--yellow);  
+  --color-warm-pink: var(--warm-pink);
+  --color-cool-pink: var(--cool-pink);
+  --color-cool-purple: var(--cool-purple);
+  --color-blue: var(--blue);
+
+
+
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -50,7 +64,10 @@
   --font-quicks: "Quicksand", sans-serif;
   --font-dms: "DM Sans", sans-serif;
   --font-inter: "Inter", sans-serif;
+
 }
+
+
 
 :root {
   --radius: 0.625rem;
@@ -64,10 +81,31 @@
   --primary-foreground: oklch(0.985 0 0);
   --secondary: #73414f;
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: #ffb555;
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: #f92057;
-  --accent-foreground: oklch(0.985 0 0);
+
+  /* Updated muted and accent colors for subtle monochrome look */
+  --muted: oklch(0.85 0 0); /* light grey */
+  --muted-foreground: oklch(0.3 0 0); /* darker grey for text */
+  --accent: oklch(0.75 0 0); /* soft grey */
+  --accent-foreground: oklch(0.15 0 0); /* almost black text */
+
+
+
+
+
+   --primary: #c08ddf; /* main purple */
+
+  --secondary: oklch(78.906% 0.14616 310.812); /* lighter soft purple, subtle tone */
+  --secondary-foreground: oklch(0.15 0.05 290); /* dark version for text */
+
+  --muted: oklch(90.875% 0.05239 303.7); /* very soft grey-purple background */
+  --muted-foreground: oklch(0.30 0.05 290); /* darker grey-purple text */
+
+  --accent: oklch(87.852% 0.07735 307.85); /* soft accent, near-neutral purple */
+  --accent-foreground: oklch(0.20 0.05 290); /* darker text for accent areas */
+
+  --card: oklch(0.97 0.05 290); /* near-white with a hint of purple */
+  --card-foreground: oklch(0.15 0.05 290); /* dark text suitable for contrast */  
+
   --destructive: oklch(0.577 0.245 27.325);
   --border: oklch(0.922 0 0);
   --input: oklch(0.922 0 0);
@@ -81,27 +119,17 @@
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: #a97bc5;
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: #f92057;
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.75 0 0); /* soft grey for sidebar accent */
+  --sidebar-accent-foreground: oklch(0.15 0 0); /* dark text */
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: #a97bc5;
 
-  /* Custom brand colors */
-  --cream: #ff4349;
-  --yellow: #ffb555;
-  --warm-pink: #f92057;
-  --cool-pink: #dd2d7e;
-  --cool-purple: #aa248e;
-  --blue: #421fb4;
-
-  /* Font families */
-  --font-mons: "Montserrat Alternates", sans-serif;
-  --font-kalnia: "Kalnia", serif;
-  --font-dm: "DM Serif Display", serif;
-  --font-ds: "Dancing Script", cursive;
-  --font-quicks: "Quicksand", sans-serif;
-  --font-dms: "DM Sans", sans-serif;
-  --font-inter: "Inter", sans-serif;
+  --cream: oklch(0.663 0.223 24.2);
+  --yellow: oklch(0.826 0.14 70.6);
+  --warm-pink: oklch(0.633 0.24 15.6);
+  --cool-pink: oklch(0.601 0.217 358.8);
+  --cool-purple: oklch(0.516 0.199 338.3);
+  --blue: oklch(0.403 0.212 282.1);
 }
 
 .dark {
@@ -115,10 +143,13 @@
   --primary-foreground: oklch(0.145 0 0);
   --secondary: #73414f;
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: #ffb555;
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: #f92057;
-  --accent-foreground: oklch(0.985 0 0);
+
+  /* Updated muted and accent colors for dark mode */
+  --muted: oklch(0.3 0 0); /* dark grey */
+  --muted-foreground: oklch(0.85 0 0); /* light grey text */
+  --accent: oklch(0.5 0 0); /* medium grey */
+  --accent-foreground: oklch(0.95 0 0); /* almost white text */
+
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
@@ -132,12 +163,11 @@
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: #a97bc5;
   --sidebar-primary-foreground: oklch(0.145 0 0);
-  --sidebar-accent: #f92057;
-  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.5 0 0); /* medium grey */
+  --sidebar-accent-foreground: oklch(0.95 0 0); /* light text */
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: #a97bc5;
 
-  /* Custom brand colors for dark mode */
   --cream: #ff4349;
   --yellow: #ffb555;
   --warm-pink: #f92057;
@@ -146,23 +176,84 @@
   --blue: #421fb4;
 }
 
+
+
+
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-primary text-foreground font-inter;
     font-family: "Inter", sans-serif;
   }
-  html {
-    background-color: #fefefe;
+
+  /* General text styling */
+  h1, h2, h3, h4, h5, h6, p, a, li, span, div {
+    @apply text-primary-foreground font-dms;
+  }
+
+  /* Responsive Typography */
+
+  /* Headings */
+  h1 {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold text-primary-foreground mb-4;
+  }
+
+  h2 {
+    @apply text-2xl sm:text-3xl md:text-4xl font-semibold text-primary-foreground mb-3;
+  }
+
+  h3 {
+    @apply text-xl sm:text-2xl md:text-3xl font-medium text-primary-foreground mb-2;
+  }
+
+  h4 {
+    @apply text-lg sm:text-xl md:text-2xl font-medium text-primary-foreground mb-2;
+  }
+
+  h5 {
+    @apply text-base sm:text-lg md:text-xl font-medium text-primary-foreground mb-1;
+  }
+
+  h6 {
+    @apply text-sm sm:text-base md:text-lg font-medium text-primary-foreground mb-1;
+  }
+
+  /* Paragraphs and divs */
+  p {
+    @apply text-xs sm:text-sm text-primary-foreground mb-4;
+  }
+
+  div {
+    @apply text-sm sm:text-base text-primary-foreground;
+  }
+
+  span {
+    @apply text-xs sm:text-sm md:text-base text-primary-foreground;
+  }
+
+  /* Lists */
+  li {
+    @apply text-sm sm:text-base text-primary-foreground mb-1;
+  }
+
+  /* Links */
+  a {
+    @apply text-sm sm:text-base text-primary;
   }
 }
 
+
 @layer utilities {
+  .hero-height {
+    height: min(85vh, 700px);
+  }
   .animate-marquee {
     display: inline-flex;
-    animation: marquee 140s linear infinite;
+    animation: marquee 5s linear infinite;
   }
 
   @keyframes marquee {
@@ -172,5 +263,43 @@
     100% {
       transform: translateX(-50%);
     }
+  }
+}
+
+/* Hide scrollbar for category row */
+.scrollbar-hide {
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+
+
+
+/* marquee.css */
+
+.marquee {
+  overflow: hidden;
+  position: relative;
+  white-space: nowrap;
+}
+
+.marquee-content {
+  display: flex;
+  animation: marquee 5s linear infinite;
+}
+
+.marquee:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

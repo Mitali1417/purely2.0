@@ -1,28 +1,23 @@
-import oily from "./assets/Skin/oilyAcneSkin.jpg";
-import dry from "./assets/Skin/drySkin.jpg";
-import normal from "./assets/Skin/normalSkin.jpg";
-import combination from "./assets/Skin/combinationSkin.jpg";
-import sensitive from "./assets/Skin/sensitiveSkin.jpg";
 
 export const skinType = [
   {
     id: 1,
     typeName: "Oily Skin",
-    image: 'https://www.pexels.com/photo/a-close-up-shot-of-a-woman-s-face-6475987/',
+    image: 'https://images.pexels.com/photos/6475987/pexels-photo-6475987.jpeg',
     description: "Feels greasy? See shine by midday?",
     getType: "Hello, oily skin.",
   },
   {
     id: 2,
     typeName: "Dry Skin",
-    image: 'https://unsplash.com/photos/left-cheek-of-green-eyed-woman-7YNi8XRryDo',
+    image: 'https://images.unsplash.com/photo-1575779977884-f1069c45cbf4?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     description: " Feels tight and sometimes flaky?",
     getType: "That’s dry skin calling.",
   },
   {
     id: 3,
     typeName: "Normal Skin",
-    image: 'https://unsplash.com/photos/woman-in-green-shirt-covering-her-face-Y1JzDXSp_wU',
+    image: 'https://images.unsplash.com/photo-1615890223236-932d93e2ae05?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
     description: "Feels pretty balanced and trouble-free?",
     getType: "You’ve got normal skin.",
   },
@@ -30,8 +25,8 @@ export const skinType = [
     id: 4,
     typeName: "Combination Skin",
     image: 'https://images.pexels.com/photos/7479953/pexels-photo-7479953.jpeg',
-    description: "Yep, that’s combination.",
-    getType: "Oily in some spots and dry in others?",
+    description: "Oily in some spots and dry in others?",
+    getType: "Yep, that’s combination.",
   },
   {
     id: 5,

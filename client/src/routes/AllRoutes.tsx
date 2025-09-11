@@ -1,22 +1,28 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import HomePage from "../pages/HomePage";
-import WishlistPage from "../pages/WishlistPage";
-import CartPage from "../pages/CartPage";
-import ProtectedRoute from "./ProtectedRoute";
-import SignupPage from "../auth/auth-pages/SignupPage";
-import LoginPage from "../auth/auth-pages/LoginPage";
-import About from "@/components/About";
-import Guide from "@/components/Guide";
-import CategoriesPage from "@/components/Category";
-import CategoryProductsPage from "@/components/Categories";
-import ProductDetailsPage from "@/components/ProductDetailsPage";
-import AssistantPage from "@/pages/AssistantPage";
-import ProductCatalog from "@/components/Product/ProductCatalog";
-import AuthLayout from "@/layouts/AuthLayout";
-import UserLayout from "@/layouts/UserLayout";
 import { AnimatePresence, motion } from "motion/react";
 
-const AnimatedPage = ({ children }: { children: any }) => (
+import HomePage from "@/pages/home";
+import WishlistPage from "@/pages/wishlist";
+import CartPage from "@/pages/cart";
+import CategoryProductsPage from "../pages/category/CategoryProductsPage";
+import BrandProductsPage from "../pages/brands/components/BrandProductsListing";
+import SalePage from "@/pages/SalePage";
+
+import About from "@/pages/about/About";
+import CategoriesPage from "@/pages/category/Category";
+import ProductDetail from "@/pages/products/ProductDetail";
+import ProductCatalog from "@/pages/products/ProductCatalog";
+
+import AuthLayout from "@/layouts/AuthLayout";
+import UserLayout from "@/layouts/UserLayout";
+
+import ProtectedRoute from "./ProtectedRoute";
+import Login from "@/pages/auth/login/Login";
+import Signup from "@/pages/auth/signup/Signup";
+import { BrandsListingPage } from "@/pages/brands/components/BrandsListingPage";
+import AssistantPage from "@/pages/assistant/AssistantPage";
+
+const AnimatedPage = ({ children }: { children: React.ReactNode }) => (
   <motion.div
     initial={{ opacity: 0, y: 8 }}
     animate={{ opacity: 1, y: 0 }}
@@ -29,110 +35,162 @@ const AnimatedPage = ({ children }: { children: any }) => (
 
 const AllRoutes = () => {
   const location = useLocation();
-  return (
-    <div>
-      <AnimatePresence mode="wait">
-        <Routes location={location} key={location.pathname}>
-          {/* Auth routes with AuthLayout */}
-          <Route path="/login" element={<AuthLayout />}>
-            <Route index element={<AnimatedPage><LoginPage /></AnimatedPage>} />
-          </Route>
-          <Route path="/signup" element={<AuthLayout />}>
-            <Route index element={<AnimatedPage><SignupPage /></AnimatedPage>} />
-          </Route>
 
-          {/* Home route - separate to maintain its own layout */}
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        {/* Public Auth Routes */}
+        <Route path="/login" element={<AuthLayout />}>
           <Route
-            path="/"
+            index
+            element={
+              <AnimatedPage>
+                <Login />
+              </AnimatedPage>
+            }
+          />
+        </Route>
+
+        <Route path="/signup" element={<AuthLayout />}>
+          <Route
+            index
+            element={
+              <AnimatedPage>
+                <Signup />
+              </AnimatedPage>
+            }
+          />
+        </Route>
+
+        {/* Public UserLayout for home and public pages */}
+        <Route path="/" element={<UserLayout />}>
+          <Route
+            index
+            element={
+              <AnimatedPage>
+                <HomePage />
+              </AnimatedPage>
+            }
+          />
+
+          <Route
+            path="about"
+            element={
+              <AnimatedPage>
+                <About />
+              </AnimatedPage>
+            }
+          />
+
+          <Route
+            path="mira"
             element={
               <ProtectedRoute>
-                <AnimatedPage><HomePage /></AnimatedPage>
+                <AnimatedPage>
+                  <AssistantPage />
+                </AnimatedPage>
               </ProtectedRoute>
             }
           />
 
-          {/* Protected routes with UserLayout */}
           <Route
-            path="/about"
+            path="wishlist"
             element={
               <ProtectedRoute>
-                <UserLayout />
+                <AnimatedPage>
+                  <WishlistPage />
+                </AnimatedPage>
               </ProtectedRoute>
             }
-          >
-            <Route index element={<AnimatedPage><About /></AnimatedPage>} />
+          />
+
+          <Route
+            path="cart"
+            element={
+              <ProtectedRoute>
+                <AnimatedPage>
+                  <CartPage />
+                </AnimatedPage>
+              </ProtectedRoute>
+            }
+          />
+
+          <Route path="categories">
+            <Route
+              index
+              element={
+                <AnimatedPage>
+                  <CategoriesPage />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path=":categoryName"
+              element={
+                <AnimatedPage>
+                  <CategoryProductsPage />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path=":categoryName/:subcategoryName"
+              element={
+                <AnimatedPage>
+                  <CategoryProductsPage />
+                </AnimatedPage>
+              }
+            />
+          </Route>
+
+          <Route path="products">
+            <Route
+              index
+              element={
+                <AnimatedPage>
+                  <ProductCatalog />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path=":productId"
+              element={
+                <AnimatedPage>
+                  <ProductDetail />
+                </AnimatedPage>
+              }
+            />
           </Route>
 
           <Route
-            path="/categories"
+            path="sale"
             element={
-              <ProtectedRoute>
-                <UserLayout />
-              </ProtectedRoute>
+              <AnimatedPage>
+                <SalePage />
+              </AnimatedPage>
             }
-          >
-            <Route index element={<AnimatedPage><CategoriesPage /></AnimatedPage>} />
-            <Route path=":categoryName" element={<AnimatedPage><CategoryProductsPage /></AnimatedPage>} />
-          </Route>
+          />
 
-          <Route
-            path="/products"
-            element={
-              <ProtectedRoute>
-                <UserLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<AnimatedPage><ProductCatalog /></AnimatedPage>} />
-            <Route path=":productId" element={<AnimatedPage><ProductDetailsPage /></AnimatedPage>} />
+          <Route path="brands">
+            <Route
+              index
+              element={
+                <AnimatedPage>
+                  <BrandsListingPage />
+                </AnimatedPage>
+              }
+            />
+            <Route
+              path=":brandName"
+              element={
+                <AnimatedPage>
+                  <BrandProductsPage />
+                </AnimatedPage>
+              }
+            />
           </Route>
-
-          <Route
-            path="/guide"
-            element={
-              <ProtectedRoute>
-                <UserLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<AnimatedPage><Guide /></AnimatedPage>} />
-          </Route>
-
-          <Route
-            path="/wishlist"
-            element={
-              <ProtectedRoute>
-                <UserLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<AnimatedPage><WishlistPage /></AnimatedPage>} />
-          </Route>
-
-          <Route
-            path="/cart"
-            element={
-              <ProtectedRoute>
-                <UserLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<AnimatedPage><CartPage /></AnimatedPage>} />
-          </Route>
-
-          <Route
-            path="/assistant"
-            element={
-              <ProtectedRoute>
-                <UserLayout />
-              </ProtectedRoute>
-            }
-          >
-            <Route index element={<AnimatedPage><AssistantPage /></AnimatedPage>} />
-          </Route>
-        </Routes>
-      </AnimatePresence>
-    </div>
+        </Route>
+      </Routes>
+    </AnimatePresence>
   );
 };
 

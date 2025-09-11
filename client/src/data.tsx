@@ -1,10 +1,3 @@
-import s1 from "./assets/Hero/heroSlider/1.jpg";
-import s2 from "./assets/Hero/heroSlider/2.jpg";
-import s3 from "./assets/Hero/heroSlider/3.jpg";
-import s4 from "./assets/Hero/heroSlider/4.jpg";
-import s5 from "./assets/Hero/heroSlider/5.jpg";
-import s6 from "./assets/Hero/heroSlider/6.jpg";
-
 export const navLinks = [
   {
     id: 1,
@@ -18,9 +11,14 @@ export const navLinks = [
   },
   {
     id: 3,
-    navText: "Guide",
-    navLink: "/guide",
+    navText: "Brands",
+    navLink: "/brands",
   },
+  // {
+  //   id: 3,
+  //   navText: "Guide",
+  //   navLink: "/guide",
+  // },
   // {
   //   id: 4,
   //   navText: "Brands",
@@ -33,83 +31,59 @@ export const navLinks = [
   // },
   {
     id: 4,
-    navText: "Assistant",
-    navLink: "/assistant",
+    navText: "Mira",
+    navLink: "/mira",
   },
 ];
 
 export const heroTextSlider = [
   {
     id: 1,
-    para: "Skincare? Need or Hype.",
+    para: "Say goodbye to skin and hair guesswork.",
   },
   {
     id: 2,
-    para: "Discover its science.",
+    para: "Get everyday essentials.",
   },
   {
     id: 3,
-    para: "Skin secrets with top Indian picks.",
+    para: "Healthy skin and hair start with the right care",
   },
   {
     id: 4,
-    para: "Dive deeper into skincare innovation.",
+    para: "With Mira, find the right skincare routine.",
   },
 ];
 
 export const heroSlider = [
   {
     id: 1,
-    image: s1,
+    image:
+      "https://images.unsplash.com/photo-1672794776762-18dddc72982e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzN8fHNhbGUlMjBza2luY2FyZXxlbnwwfHwwfHx8MA%3D%3D",
   },
   {
     id: 2,
-    image: s2,
+    image:
+      "https://images.unsplash.com/photo-1681718652786-68c2ec5f122d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDg2fHx8ZW58MHx8fHx8",
   },
   {
     id: 3,
-    image: s3,
+    image:
+      "https://plus.unsplash.com/premium_photo-1679750866883-b1c549f65da9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   },
   {
     id: 4,
-    image: s4,
+    image:
+      "https://plus.unsplash.com/premium_photo-1661637670781-a902c7f051b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQwfHx8ZW58MHx8fHx8",
   },
-  {
-    id: 5,
-    image: s5,
-  },
-  {
-    id: 6,
-    image: s6,
-  },
+  // {
+  //   id: 5,
+  //   image:
+  //     "https://images.unsplash.com/photo-1544717304-a2db4a7b16ee?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+  // },
+  // {
+  //   id: 6,
+  //   image:
+  //     "https://plus.unsplash.com/premium_photo-1661637670781-a902c7f051b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDQwfHx8ZW58MHx8fHx8",
+  // },
 ];
-
-
-
-
-export const heroSlides = [
-  {
-    title: "Transform Your",
-    highlight: "Digital Experience",
-    subtitle:
-      "Discover innovative solutions that elevate your business to new heights with cutting-edge technology and exceptional design.",
-    image: s1,
-    stats: { value: "99%", label: "Client Satisfaction" },
-  },
-  {
-    title: "Unleash Your",
-    highlight: "Creative Potential",
-    subtitle:
-      "Empower your team with tools and strategies designed to foster innovation and drive meaningful results in today's competitive landscape.",
-    image: s2,
-    stats: { value: "500+", label: "Projects Delivered" },
-  },
-  {
-    title: "Build The",
-    highlight: "Future Today",
-    subtitle:
-      "Join thousands of forward-thinking companies who trust us to deliver exceptional experiences that matter to their customers.",
-    image: s3,
-    stats: { value: "24/7", label: "Expert Support" },
-  },
-]

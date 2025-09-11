@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react"
+import { useProductStore } from "@/lib/store"
 
 export interface Product {
   _id: string
@@ -21,56 +22,40 @@ export interface Category {
 
 export const useCategories = () => {
   const [categories, setCategories] = useState<Category[]>([])
-  const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const products = useProductStore((s) => s.products)
 
   useEffect(() => {
-    const fetchProductsAndCategories = async () => {
-      try {
-        setLoading(true)
-        const response = await fetch("http://localhost:5003/api/products")
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch products")
+    try {
+      setLoading(true)
+      const data: Product[] = Array.isArray(products) ? products : []
+      const categoryMap = new Map<string, { count: number; image: string }>()
+      data.forEach((product) => {
+        const existing = categoryMap.get(product.category)
+        if (existing) {
+          existing.count += 1
+        } else {
+          categoryMap.set(product.category, {
+            count: 1,
+            image: product.productImage,
+          })
         }
-
-        const data: Product[] = await response.json()
-        setProducts(data)
-
-        // Extract unique categories with counts and representative images
-        const categoryMap = new Map<string, { count: number; image: string }>()
-
-        data.forEach((product) => {
-          const existing = categoryMap.get(product.category)
-          if (existing) {
-            existing.count += 1
-          } else {
-            categoryMap.set(product.category, {
-              count: 1,
-              image: product.productImage,
-            })
-          }
-        })
-
-        const categoriesArray: Category[] = Array.from(categoryMap.entries()).map(([name, { count, image }]) => ({
-          name,
-          count,
-          image,
-        }))
-
-        setCategories(categoriesArray.sort((a, b) => b.count - a.count)) // Sort by product count
-        setError(null)
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred")
-        console.error("Error fetching products:", err)
-      } finally {
-        setLoading(false)
-      }
+      })
+      const categoriesArray: Category[] = Array.from(categoryMap.entries()).map(([name, { count, image }]) => ({
+        name,
+        count,
+        image,
+      }))
+      setCategories(categoriesArray.sort((a, b) => b.count - a.count))
+      setError(null)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "An error occurred")
+      console.error("Error computing categories:", err)
+    } finally {
+      setLoading(false)
     }
-
-    fetchProductsAndCategories()
-  }, [])
+  }, [products])
 
   return { categories, products, loading, error }
 }

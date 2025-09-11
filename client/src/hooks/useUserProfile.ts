@@ -1,8 +1,10 @@
 import { userAPI } from "@/api/user.api";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useAuthStore } from "@/lib/store";
 
 export const useUserProfile = () => {
   const queryClient = useQueryClient();
+  const { user } = useAuthStore();
 
   const { data, isLoading, isError } = useQuery({
     queryKey: ["userProfile"],
@@ -16,8 +18,15 @@ export const useUserProfile = () => {
     },
   });
 
+  const merged = {
+    id: user?.id,
+    name: user?.name,
+    email: user?.email,
+    ...(data || {}),
+  } as any;
+
   return {
-    profile: data ?? {},
+    profile: merged,
     isLoading,
     isError,
     updateProfile: update.mutateAsync,
