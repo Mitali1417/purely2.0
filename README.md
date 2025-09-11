@@ -155,7 +155,74 @@ CLOUDINARY_CLOUD_NAME=your-cloud-name
 CLOUDINARY_API_KEY=your-api-key
 CLOUDINARY_API_SECRET=your-api-secret
 STRIPE_SECRET_KEY=your-stripe-secret
+
+# Optional: External LLM for assistant
+LLM_API_URL=<provider-endpoint>
+LLM_API_KEY=<provider-key>
 ```
+
+## 🤖 Assistant Setup
+
+- Backend route is mounted at `/api/assistant`.
+- Frontend calls are made via `client/src/api/assistant.api.ts`.
+- If `LLM_API_URL`/`LLM_API_KEY` are not set, the backend uses a rule-based fallback and still returns:
+  - `reply`: empathetic message
+  - `recommendations`: filtered products from DB
+- Ensure the user is authenticated: `/api/assistant/suggest` is protected by `requireAuth`.
+
+### Common assistant issues
+- Cannot POST `/api/assistant/suggest` → Confirm server mounts `assistantRoutes` at `/api/assistant`.
+- Unauthorized → Ensure `auth_token` is saved and Axios attaches `Authorization: Bearer <token>`.
+
+## 🔊 Voice Features (Assistant)
+
+- Voice input (speech-to-text) using Web Speech API.
+  - Mic button toggles recognition.
+- Voice response (text-to-speech) with auto-speak for assistant messages.
+  - Female voice preference when available.
+  - Speech cancels automatically on navigation away from the assistant page.
+
+Files to review:
+- `client/src/pages/assistant/components/ChatInterface.tsx`
+- `client/src/pages/assistant/AssistantPage.tsx`
+
+## ⏳ Loaders and Skeletons
+
+- Shared full-page loader: `PageLoader`
+  - File: `client/src/components/shared/PageLoader.tsx`
+  - CSS: `client/src/components/shared/PageLoader.css`
+  - Use for page-level loading states.
+- Skeletons for cards/text: `Skeleton` from `components/ui/skeleton`
+  - Used across product lists, brand lists, categories, etc.
+
+Updated pages:
+- Category products, Wishlist, Sale page, Product catalog, Brands
+
+## 🔐 Authentication Notes
+
+- Token stored as `auth_token` in `localStorage`.
+- Zustand `useAuthStore` persists state under `auth-storage`.
+- Logout clears `auth_token`, `auth-storage`, and resets cart, wishlist, and profile stores.
+- Protected route guard redirects when not authenticated.
+
+## 🧰 Scripts
+
+From the repo root:
+- `npm run dev` – start client and server concurrently
+- `npm run dev:client` – start Vite dev server
+- `npm run dev:server` – start Express server with nodemon
+- `npm run build` – build client
+- `npm run lint` – run linters
+
+## 🧪 Troubleshooting
+
+- "Cannot POST /api/assistant/suggest":
+  - Ensure `app.use("/api/assistant", assistantRoutes)` in `server/server.js`.
+- "Unauthorized" on profile/cart/wishlist/assistant:
+  - Confirm `auth_token` exists and Axios adds `Authorization` header.
+  - Ensure logout removes `auth-storage` to prevent stale rehydration.
+- Assistant responses empty:
+  - If no LLM configured, fallback rules still apply; ensure products exist in DB.
 
 ## 🎨 UI Components
 
