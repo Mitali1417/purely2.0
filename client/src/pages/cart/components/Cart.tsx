@@ -63,16 +63,15 @@ const Cart = () => {
     return (
       <div className="max-w-6xl mx-auto px-4 py-16 text-center flex flex-col items-center justify-center">
         <div className="relative mb-6">
-          <ShoppingCart className="w-16 h-16 mx-auto text-muted-foreground/60" />
+          <ShoppingCart className="w-16 h-16 mx-auto" />
           <div className="absolute -inset-4 bg-primary/5 rounded-full" />
         </div>
-        <h2 className="text-2xl font-semibold mb-2 text-foreground">
+        <h2 className="text-2xl font-semibold mb-2">
           Your cart is empty
         </h2>
-        <p className="mb-6 text-muted-foreground">
+        <p className="mb-6">
           Looks like you haven't added anything yet.
         </p>
-        <Button onClick={() => window.history.back()}>Continue Shopping</Button>
       </div>
     );
   }
