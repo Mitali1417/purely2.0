@@ -10,7 +10,7 @@ export const Skintype = () => {
     <div>
       <div>
         {/* Header Section */}
-        <div className="text-center space-y-4 mb-8">
+        <div className="text-center space-y-4">
           <h2>Love the Skin You're In</h2>
           <p className="max-w-lg mx-auto mb-6">
             Everyone's skin is unique — just like you! Discover what your skin
@@ -110,16 +110,13 @@ export const Skintype = () => {
                   <p className="text-xs line-clamp-2 leading-tight">
                     {item.description}
                   </p>
-                  <h5 className="text-sm font-semibold mb-1">
-                    {item.getType}
-                  </h5>
+                  <h5 className="text-sm font-semibold mb-1">{item.getType}</h5>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
       </div>
-
     </div>
   );
 };
