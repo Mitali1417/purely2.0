@@ -114,7 +114,7 @@ export const ProductCard = React.memo(({ product }: ProductCardProps) => {
       <div className="absolute top-3 left-3 z-10 flex flex-col gap-1">
         {isOnSale && (
           <Badge className="bg-destructive text-white text-xs px-2 py-1 font-medium">
-            {product.discountPercentage} OFF
+            {product.discountPercentage}
           </Badge>
         )}
       </div>

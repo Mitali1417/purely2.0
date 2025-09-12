@@ -105,11 +105,6 @@ export const WishlistProductCard = React.memo(
                   e.currentTarget.src = "/placeholder-image.jpg";
                 }}
               />
-              {item.product.isOnSale && (
-                <div className="absolute top-4 left-4 bg-red-500 text-white text-xs px-2 py-1 rounded-full font-medium shadow-md">
-                  {item.product.salePercentage ?? 0}% OFF
-                </div>
-              )}
               {item.product.averageRating && (
                 <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-2 py-1 flex items-center space-x-1 shadow-md">
                   <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />

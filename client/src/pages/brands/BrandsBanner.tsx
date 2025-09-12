@@ -158,7 +158,7 @@ const BrandsBanner = () => {
             {[...filteredBrands, ...filteredBrands].map(
               (brand: Brand, index: number) => (
                 <BrandCard
-                  key={`first-${brand.name}`}
+                  key={`${brand.name}-${index}`}
                   brand={brand}
                   index={index}
                 />

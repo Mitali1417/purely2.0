@@ -78,13 +78,13 @@ const Cart = () => {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-4">
       {/* Cart Items */}
-      <div className="md:col-span-2 space-y-6">
+      <div className="md:col-span-2 space-y-2 lg:space-y-4">
         <AnimatePresence>
           {items.map((item) =>
             item.product ? (
-              <Card key={item.productId}>
+              <Card key={item.productId} className="py-0 lg:py-2">
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}

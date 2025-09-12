@@ -12,6 +12,7 @@ import { Button } from "../../components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { useEffect } from "react";
 import { Skeleton } from '@/components/ui/skeleton';
+import { toast } from "sonner";
 
 const getResizedImageUrl = (url: string, width: number, height: number) => {
   if (!url) return "/placeholder-image.jpg"; 
@@ -159,8 +160,10 @@ export const ProductListingCard = ({ product }: { product: any }) => {
             : i
         )
       );
+     toast.success("Increased product quantity in cart");
     } else {
       setItems([...items, { productId: product._id, product, quantity: 1 }]);
+      toast.success("Added to cart");
     }
   };
 
@@ -171,11 +174,13 @@ export const ProductListingCard = ({ product }: { product: any }) => {
     }
     if (inWishlist) {
       setWishlist(wishlist.filter((i) => i.productId !== product._id));
+      toast.info("Removed from wishlist");
     } else {
       setWishlist([
         ...wishlist,
         { productId: product._id, product, addedAt: new Date() },
       ]);
+      toast.success("Added to wishlist");
     }
   };
 

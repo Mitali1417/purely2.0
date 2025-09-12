@@ -1,12 +1,12 @@
 import { BrowserRouter as Router } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "sonner";
 
 import AllRoutes from "./routes/AllRoutes";
 import RootLayout from "./layouts/RootLayout";
 import ErrorBoundary from "./components/shared/ErrorBoundary";
 import { useCartSync } from "./hooks/useCartSync";
+import ScrollToTop from "./components/shared/ScrollToTop";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,12 +23,12 @@ const queryClient = new QueryClient({
 });
 
 const AppContent = () => {
-  // Initialize cart sync hook globally
   useCartSync();
-  
+
   return (
     <div>
       <Router>
+        <ScrollToTop />
         <RootLayout>
           <AllRoutes />
         </RootLayout>
@@ -43,7 +43,6 @@ const App = () => {
     <ErrorBoundary>
       <QueryClientProvider client={queryClient}>
         <AppContent />
-        <ReactQueryDevtools initialIsOpen={false} />
       </QueryClientProvider>
     </ErrorBoundary>
   );

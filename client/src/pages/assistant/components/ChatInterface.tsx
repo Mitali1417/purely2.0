@@ -58,7 +58,6 @@ export const ChatInterface = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const chatContainerRef = useRef<HTMLDivElement>(null);
   const recognitionRef = useRef<any>(null);
-  const lastSpokenMessageId = useRef<string | null>(null);
 
   useEffect(() => {
     // Auto-show quick questions when no messages
@@ -73,57 +72,6 @@ export const ChatInterface = ({
       chatContainerRef.current.scrollTop = 0;
     }
   }, [messages.length === 0]);
-
-  // Stop speech synthesis when component unmounts (e.g., navigating away)
-  useEffect(() => {
-    return () => {
-      if (typeof window !== "undefined" && "speechSynthesis" in window) {
-        window.speechSynthesis.cancel();
-      }
-    };
-  }, []);
-
-  // Helper to get a female voice
-  const getFemaleVoice = () => {
-    if (typeof window === "undefined" || !window.speechSynthesis) return null;
-    const voices = window.speechSynthesis.getVoices();
-    // Try to find an English female voice
-    const female = voices.find(
-      (v) => v.lang.startsWith("en") && v.name.toLowerCase().includes("female")
-    );
-    if (female) return female;
-    // Fallback: any English voice with 'female' in name or marked as female
-    const fallback = voices.find(
-      (v) =>
-        v.lang.startsWith("en") &&
-        (v.name.toLowerCase().includes("woman") ||
-          v.name.toLowerCase().includes("girl") ||
-          v.voiceURI.toLowerCase().includes("female"))
-    );
-    if (fallback) return fallback;
-    // Fallback: any English voice
-    return voices.find((v) => v.lang.startsWith("en")) || voices[0];
-  };
-
-  // Auto-speak the latest assistant message
-  useEffect(() => {
-    if (messages.length === 0) return;
-    const lastMsg = messages[messages.length - 1];
-    if (
-      lastMsg.role === "assistant" &&
-      lastMsg.id !== lastSpokenMessageId.current &&
-      typeof window !== "undefined" &&
-      "speechSynthesis" in window
-    ) {
-      const utterance = new window.SpeechSynthesisUtterance(lastMsg.content);
-      utterance.lang = "en-US";
-      const voice = getFemaleVoice();
-      if (voice) utterance.voice = voice;
-      window.speechSynthesis.cancel(); // Stop any previous speech
-      window.speechSynthesis.speak(utterance);
-      lastSpokenMessageId.current = lastMsg.id;
-    }
-  }, [messages]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -7,7 +7,6 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { toast } from "sonner";
 import { Separator } from "@/components/ui/separator";
 import { Card } from "@/components/ui/card";
 import { useSingleProduct } from "@/hooks/useSingleProduct";
@@ -51,7 +50,6 @@ const ProductDetail = () => {
     }
     if (!product) return;
     addToCart(product as any, quantity);
-    toast.success("Added to cart");
   }, [isAuthenticated, openDialog, addToCart, product, quantity]);
 
   const toggleWishlist = useCallback(() => {
@@ -64,10 +62,8 @@ const ProductDetail = () => {
     if (!pid) return;
     if (isInWishlist(pid)) {
       removeFromWishlist(pid);
-      toast.info("Removed from wishlist");
     } else {
       addToWishlist(product as any);
-      toast.success("Added to wishlist");
     }
   }, [
     isAuthenticated,
@@ -115,7 +111,7 @@ const ProductDetail = () => {
 
   return (
     <div>
-      <div className="mx-auto py-4 px-2 sm:px-4">
+      <div className="max-w-6xl mx-auto py-4 px-2 sm:px-4">
         {/* Breadcrumb */}
         <nav className="flex items-center space-x-2 text-sm sm:text-xs text-white typography mb-4 px-2">
           <Button
