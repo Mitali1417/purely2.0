@@ -90,12 +90,12 @@ export const ProductRecommendations = ({
           </Button>
         </DialogTrigger>
 
-        <DialogContent className="max-w-3xl w-full h-[80vh]">
+        <DialogContent className="!max-w-5xl w-full h-[80vh]">
           {/* Header */}
-          <DialogHeader className="flex items-center justify-between mb-4">
+          <DialogHeader className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Sparkles className="h-5 w-5 text-primary" />
-              <h3 className="text-lg font-semibold">Recommended for you</h3>
+              <h3 className="text-lg font-semibold text-primary">Recommended for you</h3>
             </div>
           </DialogHeader>
 
