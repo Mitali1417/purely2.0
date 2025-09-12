@@ -1,4 +1,4 @@
-# Purely 2.0 - Beauty & Skincare E-commerce Platform
+# Purely 2.0 - Skincare & Haircare E-commerce Platform with Mira (AI Assistant)
 
 A modern, full-stack e-commerce platform built for beauty and skincare products, featuring AI-powered product recommendations and personalized shopping experiences.
 
