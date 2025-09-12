@@ -13,16 +13,16 @@ const SalePage = () => {
   ), [products]);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div>
       <div className="flex items-center gap-3 mb-6">
         <div>
           <h3>Big Sale</h3>
-          <p>Products with 30%+ discount</p>
+          <p>Products with 20% or more discount</p>
         </div>
       </div>
 
       {isLoading ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {Array.from({ length: 8 }).map((_, i) => (
             <Skeleton key={i} className="h-64 rounded-xl w-full" />
           ))}
@@ -30,7 +30,7 @@ const SalePage = () => {
       ) : saleProducts.length === 0 ? (
         <div className="text-center text-muted-foreground py-20">No sale items right now.</div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {saleProducts.map((product: any) => (
             <div key={product._id} className="relative">
               <div className="absolute top-2 left-2 z-10">

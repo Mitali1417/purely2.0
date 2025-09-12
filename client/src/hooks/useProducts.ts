@@ -55,13 +55,13 @@ export const useProducts = (
         setLoading(true);
         setError(null);
         try {
-          console.log("Fetching products with params:", {
-            search: query,
-            category,
-            brand,
-            limit,
-            page: pageParam as number,
-          });
+          // console.log("Fetching products with params:", {
+          //   search: query,
+          //   category,
+          //   brand,
+          //   limit,
+          //   page: pageParam as number,
+          // });
           const response = await apiGetProducts({
             ...(query ? { search: query } : {}),
             ...(category ? { category } : {}),
@@ -70,7 +70,7 @@ export const useProducts = (
             page: pageParam as number,
           });
 
-          console.log("API Response:", response);
+          // console.log("API Response:", response);
 
           // If response is an array, wrap it
           if (Array.isArray(response)) {
