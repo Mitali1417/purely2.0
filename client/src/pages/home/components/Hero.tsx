@@ -103,7 +103,7 @@ const Hero = () => {
           backgroundPosition: "center",
         }}
       >
-        <div className="relative flex flex-col md:flex-row items-center justify-between mx-auto h-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 md:py-8">
+        <div className="relative flex flex-col md:flex-row items-center md:justify-between mx-auto h-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 md:py-8">
           <div className="flex flex-col w-full md:w-1/2 z-10 justify-center h-full order-2 md:order-1">
             <motion.h1
               variants={itemVariants}
@@ -144,9 +144,9 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-80 lg:h-96 flex items-center justify-center order-1 md:order-2 mb-6 md:mb-0">
-            <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
-              <AnimatePresence mode="wait">
+          <div className="relative w-full md:w-1/2 h-full sm:h-72 md:h-80 lg:h-96 flex items-center justify-center order-1 md:order-2 mb-6 md:mb-0">
+            <div className="relative h-auto aspect-square w-64 md:w-72 lg:w-80">
+              <AnimatePresence mode="wait"> 
                 <motion.img
                   key={currentIndex}
                   src={heroSlider[currentIndex].image}
