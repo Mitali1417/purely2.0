@@ -1,4 +1,3 @@
-
 const sections = [
   {
     // title: "Why Purely?",
@@ -54,8 +53,14 @@ Step into a world where your skin and hair are celebrated — where self-care is
     title: "We Encourages You to Invest in Yourself",
     text: "Purely believes that caring for your skin and hair is a form of self-love. With the right approach, you can:",
     list: [
-      { highlight: "Prevent problems before they start,", text: "like dryness, acne, or hair fall." },
-      { highlight: "Heal and restore your skin or hair,", text: "with targeted solutions that work." },
+      {
+        highlight: "Prevent problems before they start,",
+        text: "like dryness, acne, or hair fall.",
+      },
+      {
+        highlight: "Heal and restore your skin or hair,",
+        text: "with targeted solutions that work.",
+      },
       { highlight: "Age gracefully,", text: "keeping your glow longer." },
       {
         highlight: "Feel naturally beautiful,",
@@ -84,9 +89,6 @@ Step into a world where your skin and hair are celebrated — where self-care is
   },
 ];
 
-
-
-
 type SectionProps = {
   title: React.ReactNode;
   text?: string;
@@ -97,9 +99,7 @@ type SectionProps = {
 const Section = ({ title, text, list }: SectionProps) => {
   return (
     <div className="mb-[4rem] mt-0">
-      {title && (
-        <h1>{title}</h1>
-      )}
+      {title && <h1>{title}</h1>}
       {text && (
         <p className="font-Quicks text-white mt-[1rem] whitespace-pre-line">
           {text}
@@ -111,7 +111,9 @@ const Section = ({ title, text, list }: SectionProps) => {
           {list.map((item, i) => (
             <li key={i}>
               🖤
-              <span className="font-semibold italic">&nbsp;{item.highlight}&nbsp;</span>
+              <span className="font-semibold italic">
+                &nbsp;{item.highlight}&nbsp;
+              </span>
               {item.text}
             </li>
           ))}
@@ -137,7 +139,7 @@ const About = () => {
     <div className="flex flex-col w-full h-full">
       <div className="flex flex-col w-full min-h-[96vh]">
         {sections.map((section, index) => (
-          <Section key={index} {...section} />
+          <Section key={index} {...section} title={section.title || ""} />
         ))}
       </div>
     </div>

@@ -16,7 +16,7 @@ export const FeaturedProducts = ({
   subtitle = "Carefully selected items that we love" 
 }: FeaturedProductsProps) => {
   const { data: fetched = [], isLoading } = useProducts({ limit: 12, enabled: !products || products.length === 0 });
-  const list = (products && products.length > 0 ? products : fetched).slice(0, 6);
+  const list = (Array.isArray(products) && products.length > 0 ? products : Array.isArray(fetched) ? fetched : []).slice(0, 6);
 
   return (
     <section>

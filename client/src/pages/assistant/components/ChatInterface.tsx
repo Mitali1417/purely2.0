@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -50,7 +52,7 @@ export const ChatInterface = ({
 }: ChatInterfaceProps) => {
   const [inputValue, setInputValue] = useState("");
   const [isListening, setIsListening] = useState(false);
-  const [showQuickQuestions, setShowQuickQuestions] = useState(
+  const [, setShowQuickQuestions] = useState(
     messages.length === 0
   );
   const messagesEndRef = useRef<HTMLDivElement>(null);

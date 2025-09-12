@@ -1,14 +1,12 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { getProducts } from "@/api/product.api";
 import { ProductCard } from "@/pages/products/ProductCard";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft, Package } from "lucide-react";
+import { Package } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 const BrandProductsPage = () => {
   const { brandName } = useParams<{ brandName: string }>();
-  const navigate = useNavigate();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ["products", "brand", brandName],

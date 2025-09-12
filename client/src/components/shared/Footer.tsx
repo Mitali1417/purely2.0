@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { Heart, Mail, Phone, MapPin, Instagram, Twitter, Facebook } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
 import api from '@/api';
-import { getResizedImageUrl } from "@/utils/getResizedImageUrl";
 
 interface Category {
   name: string;

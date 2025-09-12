@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
-import { ArrowRight, ChevronRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useProducts } from "@/hooks/useProducts";
 import { ProductListingCard } from "@/pages/products/ProductCatalog";
 
@@ -15,7 +15,7 @@ export const TopPicks = ({ products }: TopPicksProps) => {
     limit: 12,
     enabled: !products || products.length === 0,
   });
-  const list = (products && products.length > 0 ? products : fetched).slice(
+  const list = (products && products.length > 0 ? products : (fetched as any[])).slice(
     0,
     6
   );

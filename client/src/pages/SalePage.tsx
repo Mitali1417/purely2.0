@@ -9,7 +9,7 @@ const SalePage = () => {
   const { data: products = [], isLoading } = useProducts();
 
   const saleProducts = useMemo(() => (
-    (products || []).filter((p: any) => (p?.originalPrice || 0) > 0 && (p?.salePercentage || Math.round(((p?.originalPrice - (p?.discountPrice || p?.productPrice || 0)) / p?.originalPrice) * 100)) >= 20)
+    (Array.isArray(products) ? products : []).filter((p: any) => (p?.originalPrice || 0) > 0 && (p?.salePercentage || Math.round(((p?.originalPrice - (p?.discountPrice || p?.productPrice || 0)) / p?.originalPrice) * 100)) >= 20)
   ), [products]);
 
   return (

@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react-hooks/rules-of-hooks */
 import {
   useQuery,
-  useQueryClient,
   useInfiniteQuery,
 } from "@tanstack/react-query";
 import { useProductStore } from "@/lib/store";
@@ -9,7 +10,6 @@ import {
   getSpecialProducts,
   getProductMetadata,
 } from "@/api/product.api";
-import type { ProductsResponse } from "@/api/product.api";
 
 type ProductQueryParams = {
   search?: string;
@@ -22,15 +22,11 @@ type ProductQueryParams = {
 export const useProducts = (
   params?: ProductQueryParams & { useInfinite?: boolean }
 ) => {
-  const queryClient = useQueryClient();
   const {
     products,
     setProducts,
     setLoading,
     setError,
-    searchProducts,
-    getProductsByCategory,
-    getProductsByBrand,
   } = useProductStore();
 
   const query = params?.search || "";
@@ -54,6 +50,7 @@ export const useProducts = (
   if (params?.useInfinite) {
     return useInfiniteQuery({
       queryKey: [...queryKey, "infinite"],
+      initialPageParam: 1,
       queryFn: async ({ pageParam = 1 }) => {
         setLoading(true);
         setError(null);
@@ -63,14 +60,14 @@ export const useProducts = (
             category,
             brand,
             limit,
-            page: pageParam,
+            page: pageParam as number,
           });
           const response = await apiGetProducts({
             ...(query ? { search: query } : {}),
             ...(category ? { category } : {}),
             ...(brand ? { brand } : {}),
             limit,
-            page: pageParam,
+            page: pageParam as number,
           });
 
           console.log("API Response:", response);
@@ -107,15 +104,16 @@ export const useProducts = (
       },
 
       getNextPageParam: (lastPage) => {
-        if (!lastPage?.pagination) return undefined;
-        return lastPage.pagination.hasNextPage
-          ? lastPage.pagination.currentPage + 1
+        if (!lastPage || typeof lastPage !== 'object' || !('pagination' in lastPage)) return undefined;
+        const pagination = (lastPage as any).pagination;
+        return pagination?.hasNextPage
+          ? pagination.currentPage + 1
           : undefined;
       },
       staleTime: query ? 1000 * 60 * 2 : 1000 * 60 * 5,
       gcTime: query ? 1000 * 60 * 5 : 1000 * 60 * 10,
       refetchOnWindowFocus: !query,
-      keepPreviousData: true,
+      placeholderData: (previousData) => previousData,
     });
   }
 
@@ -149,7 +147,7 @@ export const useProducts = (
     staleTime: query ? 1000 * 60 * 2 : 1000 * 60 * 5, // 2 minutes for search, 5 for others
     gcTime: query ? 1000 * 60 * 5 : 1000 * 60 * 10, // 5 minutes for search, 10 for others
     refetchOnWindowFocus: !query, // Disable refetch on focus for search queries
-    keepPreviousData: true, // Keep showing previous results while fetching new ones
+    placeholderData: (previousData) => previousData,
   });
 
   // For unfiltered, return Zustand products if available
@@ -167,19 +165,17 @@ export const useProducts = (
 
 // Optimized hook for special products (featured/sale)
 export const useSpecialProducts = (type: "featured" | "sale") => {
-  const { featuredProducts, setFeaturedProducts, setLoading, setError } =
-    useProductStore();
+  const { setLoading, setError } = useProductStore();
 
   return useQuery({
     queryKey: ["specialProducts", type],
     queryFn: async () => {
-      if (type === "featured" && featuredProducts.length > 0)
-        return featuredProducts;
+      // Always fetch from API for special products
 
       setLoading(true);
       try {
         const products = await getSpecialProducts(type);
-        if (type === "featured") setFeaturedProducts(products || []);
+        // Store products if needed
         return products || [];
       } catch (error: any) {
         const errorMessage =
@@ -190,29 +186,24 @@ export const useSpecialProducts = (type: "featured" | "sale") => {
         setLoading(false);
       }
     },
-    enabled: type !== "featured" || featuredProducts.length === 0,
+    enabled: true,
     staleTime: 1000 * 60 * 10, // 10 minutes
   });
 };
 
 // Optimized hook for product metadata (categories/brands/tags)
 export const useProductMetadata = (type: "categories" | "brands" | "tags") => {
-  const { categories, brands, setCategories, setBrands, setLoading, setError } =
-    useProductStore();
+  const { setLoading, setError } = useProductStore();
 
   return useQuery({
     queryKey: ["productMetadata", type],
     queryFn: async () => {
-      // Return cached data if available
-      if (type === "categories" && categories.length > 0) return categories;
-      if (type === "brands" && brands.length > 0) return brands;
+      // Always fetch from API for metadata
 
       setLoading(true);
       try {
         const data = await getProductMetadata(type);
-        // Update store based on type
-        if (type === "categories") setCategories(data || []);
-        if (type === "brands") setBrands(data || []);
+        // Store metadata if needed
         return data || [];
       } catch (error: any) {
         const errorMessage =
@@ -224,8 +215,7 @@ export const useProductMetadata = (type: "categories" | "brands" | "tags") => {
       }
     },
     enabled:
-      (type === "categories" && categories.length === 0) ||
-      (type === "brands" && brands.length === 0) ||
+      true ||
       type === "tags",
     staleTime: 1000 * 60 * 15, // 15 minutes
   });

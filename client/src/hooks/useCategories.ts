@@ -29,7 +29,7 @@ export const useCategories = () => {
   useEffect(() => {
     try {
       setLoading(true)
-      const data: Product[] = Array.isArray(products) ? products : []
+      const data: any[] = Array.isArray(products) ? products : []
       const categoryMap = new Map<string, { count: number; image: string }>()
       data.forEach((product) => {
         const existing = categoryMap.get(product.category)

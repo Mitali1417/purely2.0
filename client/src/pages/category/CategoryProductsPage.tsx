@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect, useMemo } from 'react';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { ProductCard } from '@/pages/products/ProductCard';
-import { LoadingSpinner } from '@/components/shared/LoadingSpinner';
 import { Button } from '@/components/ui/button';
 import { useProductStore } from '@/store/useAppStore';
 import { getProducts } from '@/api/product.api';
@@ -10,7 +10,7 @@ import PageLoader from '@/components/shared/PageLoader';
 
 const CategoryProductsPage = () => {
   const { categoryName, subcategoryName } = useParams();
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const [searchQuery, setSearchQuery] = useState(searchParams.get('search') || '');
   const [sortBy, setSortBy] = useState(searchParams.get('sort') || 'name');
   const [priceRange, setPriceRange] = useState(searchParams.get('price') || 'all');
@@ -60,7 +60,7 @@ const CategoryProductsPage = () => {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <PageLoader text="Loading products..." />
+        <PageLoader />
       </div>
     );
   }

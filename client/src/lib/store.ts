@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { cartAPI } from "@/api/cart.api";
@@ -125,8 +126,9 @@ export const useAuthStore = create<AuthState>()(
       name: "auth-storage",
       onRehydrateStorage: () => (state) => {
         const token = localStorage.getItem("auth_token");
-        if (token) {
-          state.set({ isAuthenticated: true, auth_token: token });
+        if (token && state) {
+          state.isAuthenticated = true;
+          state.auth_token = token;
         }
       },
     }

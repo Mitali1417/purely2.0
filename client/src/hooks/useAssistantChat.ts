@@ -72,7 +72,7 @@ export const useAssistantChat = () => {
     return 'mild';
   };
 
-  const generateTips = (message: string, concernType: 'skin' | 'hair' | 'body'): string[] => {
+  const generateTips = (_message: string, concernType: 'skin' | 'hair' | 'body'): string[] => {
     const tips: string[] = [];
     
     switch (concernType) {

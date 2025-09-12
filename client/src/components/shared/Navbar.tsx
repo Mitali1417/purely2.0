@@ -9,7 +9,6 @@ import {
   X,
   Search,
   User,
-  LogOut,
   Home,
 } from "lucide-react";
 import { useAuthStore, useCartStore } from "@/lib/store";

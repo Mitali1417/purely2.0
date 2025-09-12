@@ -11,19 +11,14 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import {
-  User,
   Mail,
-  Phone,
-  MapPin,
   ShoppingCart,
   Heart,
   Loader2,
   AlertCircle,
-  CreditCard,
   Package,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { Skeleton } from "@/components/ui/skeleton";
 
 const initials = (name?: string) => {
   if (!name) return "U";

@@ -1,10 +1,10 @@
 // Option 1: Update your useCartSync hook to load products first
 import { useEffect, useRef } from 'react';
-import { useCartStore, useAuthStore, useProductStore } from '@/lib/store';
+import { useCartStore, useAuthStore } from '@/lib/store';
 
 export const useCartSync = () => {
   const { loadCartData, loadWishlistData } = useCartStore();
-  const { products, setProducts } = useProductStore();
+  // const { products, setProducts } = useProductStore();
   const { isAuthenticated } = useAuthStore();
   const hasInitialized = useRef(false);
   const loadingRef = useRef(false);

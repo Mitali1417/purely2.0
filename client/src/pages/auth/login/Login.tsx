@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useFormik } from "formik";
 import { useNavigate, Link } from "react-router-dom";
 import { useAuthStore } from "@/lib/store";
@@ -29,7 +30,7 @@ const Login = () => {
   const [error, setError] = useState<string | null>(null);
   const [showPassword, setShowPassword] = useState(false);
 
-  const { values, errors, touched, handleBlur, handleChange, handleSubmit, isSubmitting } =
+  const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
     useFormik({
       initialValues: {
         email: "",

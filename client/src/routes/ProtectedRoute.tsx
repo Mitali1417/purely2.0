@@ -1,11 +1,10 @@
 
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useAuthStore } from "@/lib/store";
 import { Navigate, useLocation, useNavigate } from "react-router-dom";
-import api from "@/api";
 import { useLoginDialogStore } from "@/components/shared/LoginRequiredDialog";
 
-const ProtectedRoute = ({ children }) => {
+const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, logout } = useAuthStore();
   const navigate = useNavigate();
   const location = useLocation();

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { heroSlider, heroTextSlider } from "@/data";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence, easeInOut } from "motion/react"; // fixed ease import
 import { ShinyButton } from "@/components/magicui/shiny-button";
 
 const Hero = () => {
@@ -28,7 +28,7 @@ const Hero = () => {
       scale: 1,
       transition: {
         duration: 1,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: easeInOut,
       },
     },
     exit: {
@@ -37,7 +37,7 @@ const Hero = () => {
       scale: 0.9,
       transition: {
         duration: 0.7,
-        ease: [0.25, 0.46, 0.45, 0.94],
+        ease: easeInOut,
       },
     },
   };
@@ -53,7 +53,7 @@ const Hero = () => {
       transition: {
         duration: 0.7,
         delay: 0.2,
-        ease: "easeOut",
+        ease: easeInOut,
       },
     },
     exit: {
@@ -61,7 +61,7 @@ const Hero = () => {
       opacity: 0,
       transition: {
         duration: 0.5,
-        ease: "easeIn",
+        ease: easeInOut,
       },
     },
   };
@@ -84,7 +84,7 @@ const Hero = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: "easeOut",
+        ease: easeInOut,
       },
     },
   };
@@ -104,7 +104,6 @@ const Hero = () => {
         }}
       >
         <div className="relative flex flex-col md:flex-row items-center justify-between mx-auto h-full px-4 sm:px-6 md:px-8 lg:px-12 py-6 md:py-8">
-          {/* Content Container - Stack vertically on mobile */}
           <div className="flex flex-col w-full md:w-1/2 z-10 justify-center h-full order-2 md:order-1">
             <motion.h1
               variants={itemVariants}
@@ -113,7 +112,6 @@ const Hero = () => {
               .purely
             </motion.h1>
 
-            {/* Text slider - visible on all screens */}
             <motion.div
               variants={itemVariants}
               className="relative py-4 mb-5 max-w-md mx-auto md:mx-0"
@@ -146,14 +144,13 @@ const Hero = () => {
             </motion.div>
           </div>
 
-          {/* Image Section - Order first on mobile */}
           <div className="relative w-full md:w-1/2 h-64 sm:h-72 md:h-80 lg:h-96 flex items-center justify-center order-1 md:order-2 mb-6 md:mb-0">
             <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
               <AnimatePresence mode="wait">
                 <motion.img
                   key={currentIndex}
                   src={heroSlider[currentIndex].image}
-                  alt={heroSlider[currentIndex].alt}
+                  alt={`Hero slide ${currentIndex + 1}`}
                   variants={imageVariants}
                   initial="enter"
                   animate="center"
@@ -165,7 +162,6 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Indicators - Adjusted for mobile */}
         <motion.div
           variants={itemVariants}
           className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2"

@@ -1,7 +1,8 @@
-import { useCallback, useEffect, useMemo } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import { useCallback, useEffect } from "react";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useProfileStore } from "@/lib/store";
-import { userAPI } from "@/api";
+import  userAPI from "@/api";
 import { useDebounce } from "./useDebounce";
 
 export const useProfile = () => {
@@ -13,35 +14,33 @@ export const useProfile = () => {
     error,
     updateProfile: updateLocalProfile,
     updatePreferences: updateLocalPreferences,
-    setLoading,
-    setError,
     resetProfile: resetLocalProfile
   } = useProfileStore();
 
   // Fetch profile from server
   const { data: serverProfile, isLoading: isLoadingProfile } = useQuery({
     queryKey: ["userProfile"],
-    queryFn: userAPI.getProfile,
+    queryFn: () => userAPI.get('/profile'),
     enabled: false, // Don't auto-fetch, we'll sync from local store
   });
 
   // Fetch preferences from server
   const { data: serverPreferences, isLoading: isLoadingPreferences } = useQuery({
     queryKey: ["userPreferences"],
-    queryFn: userAPI.getPreferences,
+    queryFn: () => userAPI.get('/preferences'),
     enabled: false, // Don't auto-fetch, we'll sync from local store
   });
 
   // Sync server data with local store when available
   useEffect(() => {
-    if (serverProfile && Object.keys(serverProfile).length > 0) {
-      updateLocalProfile(serverProfile);
+    if (serverProfile && Object.keys(serverProfile.data).length > 0) {
+      updateLocalProfile(serverProfile.data);
     }
   }, [serverProfile, updateLocalProfile]);
 
   useEffect(() => {
-    if (serverPreferences && Object.keys(serverPreferences).length > 0) {
-      updateLocalPreferences(serverPreferences);
+    if (serverPreferences && Object.keys(serverPreferences.data).length > 0) {
+      updateLocalPreferences(serverPreferences.data);
     }
   }, [serverPreferences, updateLocalPreferences]);
 
@@ -53,9 +52,9 @@ export const useProfile = () => {
   const updateMutation = useMutation({
     mutationFn: async (data: { type: 'profile' | 'preferences'; updates: any }) => {
       if (data.type === 'profile') {
-        return userAPI.updateProfile(data.updates);
+        return userAPI.put('/profile', data.updates);
       }
-      return userAPI.updatePreferences(data.updates);
+      return userAPI.put('/preferences', data.updates);
     },
     onSuccess: (_, variables) => {
       queryClient.invalidateQueries({ 

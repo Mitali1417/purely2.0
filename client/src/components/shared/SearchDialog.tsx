@@ -1,13 +1,12 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Search, Loader2, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { useProducts } from "@/hooks/useProducts";
 import { useState, useEffect, useCallback, useRef } from "react";
 import { ProductListingCard } from "@/pages/products/ProductCatalog";
-import type { ProductsResponse } from "@/api/product.api";
 import type { Product } from "@/lib/store";
-import { useDebounce, useDebouncedCallback, useThrottle } from "@/hooks/useDebounce";
+import { useDebounce, useDebouncedCallback } from "@/hooks/useDebounce";
 
 interface SearchDialogProps {
   isOpen: boolean;
@@ -18,22 +17,19 @@ export const SearchDialog = ({ isOpen, onOpenChange }: SearchDialogProps) => {
   const [query, setQuery] = useState("");
   const debouncedQuery = useDebounce(query, 500); // Increased debounce time for better performance
   const observerTarget = useRef<HTMLDivElement>(null);
-  const { data, isLoading: loading, isError: error, fetchNextPage, hasNextPage, isFetchingNextPage } = useProducts({ 
+  const { data, isLoading: loading, isError: error } = useProducts({ 
     search: debouncedQuery, 
     enabled: true,
     limit: 10,
     useInfinite: true
   });
 
-  const products = data?.pages?.flatMap((page: ProductsResponse) => page?.products || []) ?? [];
+  const products = Array.isArray(data) ? data : data?.products || [];
   
   // Throttled intersection observer callback
-  const handleIntersection = useCallback((entries: IntersectionObserverEntry[]) => {
-    const [entry] = entries;
-    if (entry?.isIntersecting && hasNextPage && !isFetchingNextPage) {
-      fetchNextPage();
-    }
-  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+  const handleIntersection = useCallback((_entries: IntersectionObserverEntry[]) => {
+    // Handle pagination if needed
+  }, []);
 
   const throttledHandleIntersection = useDebouncedCallback(handleIntersection, 500);
 
@@ -160,7 +156,7 @@ export const SearchDialog = ({ isOpen, onOpenChange }: SearchDialogProps) => {
             )}
 
             {/* Infinite Scroll Loader */}
-            {(hasNextPage || isFetchingNextPage) && (
+            {false && (
               <div ref={observerTarget} className="mt-4 flex justify-center">
                 <Loader2 className="h-6 w-6 animate-spin text-primary" />
               </div>

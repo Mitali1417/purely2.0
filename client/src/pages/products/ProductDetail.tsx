@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useMemo, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
@@ -24,17 +24,10 @@ import {
   AlertCircle,
 } from "lucide-react";
 import type { Product } from "@/data/products";
-import { getResizedImageUrl } from "@/utils/getResizedImageUrl";
 
 const ProductDetail = () => {
   const { productId } = useParams<{ productId: string }>();
-  const [quantity, setQuantity] = useState(1);
-  const [activeImage, setActiveImage] = useState(0);
-  const [reviewForm, setReviewForm] = useState({
-    rating: 5,
-    comment: "",
-    userName: "",
-  });
+  const [quantity] = useState(1);
 
   const {
     product,
@@ -50,31 +43,11 @@ const ProductDetail = () => {
     addToCart,
     addToWishlist,
     removeFromWishlist,
-    updateQuantity,
-    items,
   } = useCartStore();
   const { isAuthenticated } = useAuthStore();
   const { openDialog } = useLoginDialogStore();
 
-  const images = useMemo(() => {
-    if (!product) return [] as string[];
-    const primary = product?.productImage || "";
-    const gallery: string[] = (product as any)?.productImages || [];
-    return gallery && gallery.length > 0 ? [primary, ...gallery] : [primary];
-  }, [product]);
 
-  const getCartItemQuantity = useCallback(
-    (productId: string) => {
-      const item = items.find((i) => i.productId === productId);
-      return item ? item.quantity : 0;
-    },
-    [items]
-  );
-
-  const cartQuantity = useMemo(
-    () => (product?._id ? getCartItemQuantity(product._id) : 0),
-    [product, getCartItemQuantity]
-  );
 
   const handleAddToCart = useCallback(() => {
     if (!isAuthenticated) {
@@ -82,7 +55,7 @@ const ProductDetail = () => {
       return;
     }
     if (!product) return;
-    addToCart(product, quantity);
+    addToCart(product as any, quantity);
     toast.success("Added to cart");
   }, [isAuthenticated, openDialog, addToCart, product, quantity]);
 
@@ -98,7 +71,7 @@ const ProductDetail = () => {
       removeFromWishlist(pid);
       toast.info("Removed from wishlist");
     } else {
-      addToWishlist(product);
+      addToWishlist(product as any);
       toast.success("Added to wishlist");
     }
   }, [
@@ -215,9 +188,9 @@ const ProductDetail = () => {
                   <span className="text-sm text-muted-foreground ml-1">
                     {product?.rating?.toFixed(1) ?? "-"}
                   </span>
-                  {product?.discountPercentage && (
+                  {(product as any)?.discountPercentage && (
                     <span className="text-xs text-green-600 font-semibold ml-2">
-                      {product.discountPercentage}
+                      {(product as any).discountPercentage}
                     </span>
                   )}
                 </div>
@@ -225,7 +198,7 @@ const ProductDetail = () => {
               {/* Price */}
               <div className="flex items-center gap-4 mt-2">
                 <span className="text-2xl font-bold text-primary">
-                  ₹{product?.discountPrice?.toLocaleString("en-IN")}
+                  ₹{(product as any)?.discountPrice?.toLocaleString("en-IN")}
                 </span>
                 {product?.originalPrice && (
                   <span className="text-lg text-muted-foreground line-through">
@@ -321,7 +294,7 @@ const ProductDetail = () => {
                 </div>
                 <div>
                   <dt className="font-medium">Rating</dt>
-                  <dd>{product.rating.toFixed(1)} / 5</dd>
+                  <dd>{product.rating?.toFixed(1) ?? "0.0"} / 5</dd>
                 </div>
                 <div>
                   <dt className="font-medium">Stock</dt>

@@ -1,28 +1,23 @@
+
 export interface Product {
-  salePercentage: ReactNode;
-  isFeatured: any;
-  averageRating: any;
-  totalReviews: number;
-  totalSold: number;
-  originalPrice: any;
-  variants: boolean;
-  stock: string | number | undefined;
-  tags: boolean;
-  seoDescription: any;
-  sku: ReactNode;
-  weight: any;
-  dimensions: any;
-  shippingClass: ReactNode;
-  isOnSale: any;
   _id: string;
   productName: string;
   productPrice: number;
   productImage: string;
   productDescription: string;
   category: string;
-  brand?: string;
+  brand: string;
+  stock: number;
+  averageRating: number;
+  totalReviews: number;
+  isOnSale?: boolean;
+  salePercentage?: number;
+  originalPrice?: number;
+  discountPrice?: number;
   rating?: number;
   reviews?: number;
+  createdAt?: string;
+  __v?: number;
 }
 
 // export const productsData: Product[] = [

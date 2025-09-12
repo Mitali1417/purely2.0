@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -5,7 +6,6 @@ import {
   TooltipTrigger,
   TooltipContent,
 } from "@/components/ui/tooltip";
-import { toast } from "sonner";
 import { Badge } from "@/components/ui/badge";
 import { Heart, Star, ShoppingCart, ArrowUpRight } from "lucide-react";
 import { useAuthStore, useCartStore } from "@/lib/store";
@@ -81,7 +81,7 @@ export const ProductCard = React.memo(({ product }: ProductCardProps) => {
       if (inWishlist) {
         removeFromWishlist(product._id);
       } else {
-        addToWishlist(product);
+        addToWishlist(product as any);
       }
     } finally {
       setIsProcessing(false);
@@ -102,7 +102,7 @@ export const ProductCard = React.memo(({ product }: ProductCardProps) => {
     }
     setIsProcessing(true);
     try {
-      addToCart(product, 1);
+      addToCart(product as any, 1);
     } finally {
       setIsProcessing(false);
     }

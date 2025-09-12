@@ -2,7 +2,7 @@
 // components/Sections/HotPicks.tsx
 import { Button } from "@/components/ui/button";
 import { motion } from "motion/react";
-import { Flame, ChevronRight, ArrowRight } from "lucide-react";
+import { ChevronRight, ArrowRight } from "lucide-react";
 import { useProducts } from "@/hooks/useProducts";
 import { ProductListingCard } from "@/pages/products/ProductCatalog";
 
@@ -15,7 +15,8 @@ export const HotPicks = ({ products }: HotPicksProps) => {
     limit: 9,
     enabled: !products || products.length === 0,
   });
-  const list = (products && products.length > 0 ? products : fetched).slice(
+  const safeFetched: any[] = Array.isArray(fetched) ? fetched : [];
+  const list = (products && products.length > 0 ? products : safeFetched).slice(
     0,
     3
   );

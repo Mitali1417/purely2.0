@@ -29,7 +29,7 @@ export const assistantAPI = {
 
   sendMessage: async (payload: MessagePayload, stream?: boolean): Promise<AssistantResponse | ReadableStream> => {
     const endpoint = stream ? "/assistant/stream" : "/assistant/suggest";
-    const config = stream ? { responseType: "stream" } : undefined;
+    const config = stream ? { responseType: "stream" as const } : undefined;
     
     const res = await api.post(endpoint, {
       messages: [{ role: "user", content: payload.message }],

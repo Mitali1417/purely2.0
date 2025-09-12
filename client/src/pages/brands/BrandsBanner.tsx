@@ -72,7 +72,7 @@ const BrandCard = ({ brand, index }: { brand: Brand; index: number }) => {
 
 const BrandsBanner = () => {
   const { data: brandsRaw, isLoading, error } = useBrands();
-  const [isPaused, setIsPaused] = useState(false);
+  const [, setIsPaused] = useState(false);
   const brands: Brand[] = Array.isArray(brandsRaw)
     ? brandsRaw.map((b: any) =>
         typeof b === "string"
