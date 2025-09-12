@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
+  import { Dialog, DialogContent, DialogHeader } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Search, Loader2, X } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
@@ -24,7 +24,14 @@ export const SearchDialog = ({ isOpen, onOpenChange }: SearchDialogProps) => {
     useInfinite: true
   });
 
-  const products = Array.isArray(data) ? data : data?.products || [];
+  // Flatten products from infinite query pages or use direct array/object when applicable
+  const products: Product[] = Array.isArray(data)
+    ? (data as Product[])
+    : Array.isArray((data as any)?.pages)
+    ? ((data as any).pages.flatMap((page: any) =>
+        Array.isArray(page) ? page : page?.products ?? []
+      ) as Product[])
+    : ((data as any)?.products ?? []);
   
   // Throttled intersection observer callback
   const handleIntersection = useCallback((_entries: IntersectionObserverEntry[]) => {

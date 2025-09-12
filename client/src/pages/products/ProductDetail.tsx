@@ -114,7 +114,7 @@ const ProductDetail = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div>
       <div className="mx-auto py-4 px-2 sm:px-4">
         {/* Breadcrumb */}
         <nav className="flex items-center space-x-2 text-sm sm:text-xs text-white typography mb-4 px-2">
