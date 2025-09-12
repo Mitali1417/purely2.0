@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -151,27 +152,12 @@ export const ProductCard = React.memo(({ product }: ProductCardProps) => {
       <CardContent className="flex flex-col items-center p-0">
         {/* Product Image Container */}
         <Link to={`/products/${product._id}`} className="block w-full">
-          <div className="relative w-full overflow-hidden aspect-square">
+          <div className="relative w-full overflow-hidden aspect-video">
             <img
               src={product.productImage}
               alt={product.productName}
               className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
             />
-
-            {/* Quick View Overlay */}
-            {/* <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
-              <Button
-                variant="secondary"
-                size="sm"
-                className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-gray-900"
-                asChild
-              >
-                <Link to={`/products/${product._id}`}>
-                  <Eye className="h-4 w-4 mr-1" />
-                  Quick View
-                </Link>
-              </Button>
-            </div> */}
           </div>
         </Link>
 

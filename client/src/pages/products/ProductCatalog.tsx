@@ -106,13 +106,6 @@ const ProductCatalog = () => {
 
   return (
     <div className="flex flex-col w-full mx-auto px-4 py-8">
-      <div className="flex flex-col gap-2 mb-10">
-        <h1 className="text-2xl font-medium text-center">Our Products</h1>
-        <p className="text-muted-foreground text-sm text-center">
-          Discover our curated collection
-        </p>
-      </div>
-
       <div className="w-full">
         {isLoading && renderLoading()}
         {isError && renderError()}
