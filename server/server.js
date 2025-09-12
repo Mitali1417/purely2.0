@@ -56,11 +56,12 @@ app.use(
 app.options(
   "*",
   cors({
-    origin: [
-      "https://purely2-0.onrender.com",
-      "http://localhost:5174",
-      "http://localhost:5173",
-    ],
+    origin: "*",
+    // origin: [
+    //   "https://purely2-0.onrender.com",
+    //   "http://localhost:5174",
+    //   "http://localhost:5173",
+    // ],
     methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
     credentials: true,
