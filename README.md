@@ -287,4 +287,5 @@ For support and questions, please open an issue in the repository.
 
 ---
 
-Built with ❤️ by the Purely Team
+Built with ❤️ by Mitali
+
