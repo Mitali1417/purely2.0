@@ -34,7 +34,15 @@ app.use(
 );
 
 // Connect to database
-connectDB();
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
+};
 
 app.post(
   "/api/checkout/webhook",
@@ -71,4 +79,4 @@ app.use("/api/assistant", assistantRoutes);
 app.use("/api/queries", require("./routes/userQueryRoutes"));
 app.use("/api/checkout", checkoutRoutes);
 
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+startServer();
