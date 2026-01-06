@@ -16,13 +16,7 @@ const userRoutes = require("./routes/userRoutes");
 const assistantRoutes = require("./routes/assistantRoutes");
 const { connectDB } = require("./config/db");
 
-app.post(
-  "/api/checkout/webhook",
-  express.raw({ type: "application/json" }),
-  handleStripeWebhook
-);
 
-app.use(express.json());
 
 // Middleware
 app.use(express.json());
@@ -39,6 +33,16 @@ app.use(
   })
 );
 
+// Connect to database
+connectDB();
+
+app.post(
+  "/api/checkout/webhook",
+  express.raw({ type: "application/json" }),
+  handleStripeWebhook
+);
+
+
 // Enable preflight for all routes
 app.options(
   "*",
@@ -53,8 +57,6 @@ app.options(
   })
 );
 
-// Connect to database
-connectDB();
 
 // Root route handler
 app.get("/", (req, res) => {
